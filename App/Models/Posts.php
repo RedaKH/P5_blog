@@ -17,7 +17,7 @@ class Posts extends \Core\Model
     public static function getPosts()
     {
         $db = static::getDB();
-        $stmt = $db->query('SELECT * FROM comment');
+        $stmt = $db->query('SELECT * FROM post');
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
