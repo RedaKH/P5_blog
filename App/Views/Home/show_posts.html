@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}post{% endblock %}
+
+{% block body %}
+
+{% for posts in post %}
+<h1>Title : </h1>
+<h2>{{posts.title}}</h2><br>
+<h1>Content : </h1>
+<h2>{{posts.content}}</h2><br/>
+<h1>created_at : </h1>
+<h2>{{posts.created_at}}</h2></br>
+<a href="">delete</a>
+
+{% endfor %}
+   
+
+
+{% endblock %}
