@@ -20,26 +20,21 @@ class User extends \Core\Controller
         $modelUser = new ModelsUser;
 
 
-        if(isset($_POST['submit'])) {
-          $username=$_POST['username'];
-          $password=$_POST['password'];
+        if (isset($_POST['submit'])) {
+            $username = $_POST['username'];
+            $password = $_POST['password'];
 
-          $email= $_POST['email'];
-          $users = $modelUser->setUser($username,$email,$password);
-          echo"success";
+            $email = $_POST['email'];
+            $users = $modelUser->setUser($username, $email, $password);
+            echo "success";
+        } else {
+
+            View::render('Home/User.html');
+         } 
+
+        
 
 
-
-              
-
-          
-
-
-        }else {
-            
-            View::renderTemplate('Home/User.html');
-
-        }
 
 
     }
@@ -50,7 +45,28 @@ class User extends \Core\Controller
 
        // var_dump($display_user);
 
-        View::renderTemplate('Home/show_user.html',['user' => $display_user]);
+        View::render('Home/show_user.php',['user' => $display_user]);
+
+
+    }
+
+    public function auth(){
+        $userModel = new ModelsUser;
+
+
+        if(isset($_POST['submit'])){
+            $email=$_POST['email'];
+            $password=$_POST['password'];
+            if (!empty($email) AND !empty($password)) {
+                $login= $userModel->connectUser($email,$password);
+
+                # code...
+            }
+
+        }
+
+
+        View::render('Home/login.php');
 
 
     }

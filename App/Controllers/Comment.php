@@ -19,7 +19,9 @@ class Comment extends \Core\Controller
      */
     public function indexAction()
     {
-        View::renderTemplate('Home/index.html');
+        $commentsModel = new ModelsComment;
+
+        View::render('Home/show_comments.php');
     }
 
     public function store_comments(){
@@ -45,7 +47,7 @@ class Comment extends \Core\Controller
 
         }else {
             
-            View::renderTemplate('Home/comment.html');
+            View::render('Home/comment.php');
 
         }}
 
@@ -55,7 +57,7 @@ class Comment extends \Core\Controller
                 
             
 
-            View::renderTemplate('Home/comment.html',['comment'=>$display_comments]);
+            View::render('Home/show_comments.php',['comment'=>$display_comments]);
 
 
 
@@ -64,12 +66,52 @@ class Comment extends \Core\Controller
 
         public function remove_comments(){
             $commentsModel = new ModelsComment;
-            $delete_comments = $commentsModel->deleteComments($id_comments);
+            $id_com = $_GET['id_com'];
+            $delete=$commentsModel->deleteComments($id_com);
+
+
+            
+            $this->show_comments();
+
+            
+
+           
+
+            if($delete===true){
+                echo "data deleted success";
+
+
+
+
+
+               
+
+ 
+
+
+            } else {
+                echo "data fail";
+            }
+
+           
+
+
 
 
             
 
-            View::renderTemplate('Home/comment.html');
+
+        }
+        public function edit_comments(){
+            $commentsModel = new ModelsComment;
+            $id_com = $_GET['id_com'];
+            $data = $commentsModel->edit($id_com);
+
+            View::render('Home/edit_comments.php',['comment'=>$data]);
+
+
+
+
 
         }
         

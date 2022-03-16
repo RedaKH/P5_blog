@@ -30,10 +30,26 @@ $router->add('', ['controller' => 'Home', 'action' => 'index']);
 $router->add('{controller}/{action}');
 $router->add('user/store_user', ['controller' => 'user', 'action' => 'store_user']);
 $router->add('user/show_user', ['controller' => 'user', 'action' => 'show_user']);
+$router->add('user/auth', ['controller' => 'user', 'action' => 'auth']);
+
 $router->add('posts/store_posts', ['controller' => 'posts', 'action' => 'store_posts']);
 $router->add('posts/show_post', ['controller' => 'posts', 'action' => 'show_post']);
 $router->add('comment/store_comments', ['controller' => 'comment', 'action' => 'store_comments']);
 $router->add('comment/show_comments', ['controller' => 'comment', 'action' => 'show_comments']);
+$router->add('comment/remove_comments', ['controller' => 'comment', 'action' => 'remove_comments']);
+$router->add('comment/edit_comments', ['controller' => 'comment', 'action' => 'edit_comments']);
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

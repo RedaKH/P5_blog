@@ -46,7 +46,7 @@ class Posts extends \Core\Controller
 
         }else {
             
-            View::renderTemplate('Home/post.html');
+            View::renderTemplate('Home/post.php');
 
         }}
 
@@ -54,7 +54,7 @@ class Posts extends \Core\Controller
             $postModel = new ModelsPosts;
             $display_posts = $postModel->getPosts();
 
-            View::renderTemplate('Home/show_posts.html',['post' => $display_posts]);
+            View::render('Home/show_posts.php',['post' => $display_posts]);
 
 
 

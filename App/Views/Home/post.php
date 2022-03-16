@@ -1,8 +1,4 @@
-{% extends "base.html" %}
 
-{% block title %}Home{% endblock %}
-
-{% block body %}
 
 <form action="" method="POST">
     <label for="title">Title : </label>
@@ -20,4 +16,3 @@ It was a dark and stormy night...
 
 </form>
 
-{% endblock %}
