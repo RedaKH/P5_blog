@@ -1,8 +1,8 @@
 
 
 <form action="" method="POST">
-  <label for="email" name=""> Email </label>
-  <input type="text" name="email">
+  <label> Username </label>
+  <input type="text" name="username">
   <label for="password"> Password </label>
   <input type="password" name="password">
 

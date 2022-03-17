@@ -22,14 +22,14 @@ class User extends \Core\Controller
 
         if (isset($_POST['submit'])) {
             $username = $_POST['username'];
-            $password = $_POST['password'];
+            $password = password_hash($_POST['password'],PASSWORD_DEFAULT);
 
             $email = $_POST['email'];
             $users = $modelUser->setUser($username, $email, $password);
             echo "success";
         } else {
 
-            View::render('Home/User.html');
+            View::render('Home/User.php');
          } 
 
         
@@ -50,24 +50,5 @@ class User extends \Core\Controller
 
     }
 
-    public function auth(){
-        $userModel = new ModelsUser;
-
-
-        if(isset($_POST['submit'])){
-            $email=$_POST['email'];
-            $password=$_POST['password'];
-            if (!empty($email) AND !empty($password)) {
-                $login= $userModel->connectUser($email,$password);
-
-                # code...
-            }
-
-        }
-
-
-        View::render('Home/login.php');
-
-
-    }
+   
 }

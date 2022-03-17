@@ -105,9 +105,26 @@ class Comment extends \Core\Controller
         public function edit_comments(){
             $commentsModel = new ModelsComment;
             $id_com = $_GET['id_com'];
-            $data = $commentsModel->edit($id_com);
+            $edit_com = $commentsModel->edit($id_com);
+            
+            
 
-            View::render('Home/edit_comments.php',['comment'=>$data]);
+            View::render('Home/edit_comments.php',['comment'=>$edit_com]);
+
+
+
+
+
+        }
+
+        public function update_comments(){
+            $commentsModel = new ModelsComment;
+            $com_id = $_POST['com_id'];
+            $update_com = $_POST['update_com'];
+
+            $data = array('update_com' => $update_com );
+
+        
 
 
 

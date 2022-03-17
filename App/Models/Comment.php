@@ -53,11 +53,17 @@ class Comment extends \Core\Model
         $db = static::getDB();
 
          
-        $stmt= $db->prepare("SELECT * FROM comment WHERE id_com= $id_com");
-        $selectFindbyId=$stmt->execute(array($id_com));
-        return $selectFindbyId;
+        $stmt= $db->prepare("SELECT * FROM comment WHERE id_com= :id LIMIT 1");
+        $stmt->execute(['id' => $id_com]); 
+        $selectFindbyId = $stmt->fetch();
 
 
+
+    }
+
+    public function update($data,$com_id){
+
+        
 
     }
 

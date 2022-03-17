@@ -1,6 +1,5 @@
 
 <form action="" method="POST">
-<?php foreach ($comment as $comments) { ?>
     <label for="comment">commentaire : </label><br/>
 
 <textarea id="comment" name="comment" 
@@ -17,7 +16,6 @@
 
 
 
-<?php } ?>
 
 </form>
 

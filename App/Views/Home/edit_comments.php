@@ -7,20 +7,24 @@
     <title>Document</title>
 </head>
 <body>
-<form action="<?php echo"comment/"; ?>" method="POST">
-<?php foreach ($comment as $comments) { ?>
+    
+<form action="comment/edit_comments" method="POST">
+        <?php foreach ($comment as $comments) { ?>
     <input type="hidden" name="com_id" value="<?php echo $comments['id_com']; ?>">
 
 
 <label>Modifier un commentaire : </label><br/>
 
-<textarea id="comment" name="comment" value="<?php echo $comments['content']; ?>"
+<textarea id="comment" name="content" value="<?php echo htmlspecialchars($comments['content']); ?>"
           rows="5" cols="33">
 </textarea>
 <br/>
 
-<input type="submit" name="update" value="update">
 <?php } ?>
+
+
+<input type="submit" name="update" value="update">
+
 
 </form>
     
