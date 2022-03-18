@@ -24,7 +24,7 @@ class Login extends \Core\Model
         $db = static::getDB();
         $myQuery = "SELECT * FROM user WHERE username = '".$username."' and password = '".$password."'";
         $results = $db->query($myQuery);
-        return $results->fetch_array(); // return the result 
+        return $results->fetch_array(); 
     }
     
 }

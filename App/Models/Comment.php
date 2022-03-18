@@ -10,8 +10,7 @@ use PDO;
  */
 class Comment extends \Core\Model
 { 
-    private $comment;
-    private $id_com;
+    
 
 
     /**
