@@ -21,13 +21,19 @@ class Posts extends \Core\Model
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function setPost($title,$content){
+    public function AddPost(PostsEntity $post){
         $db = static::getDB();
+        $addPost = $db->prepare(
+            'INSERT INTO Post (id_post, title, content,createdAt) 
+            VALUES (:id_post, :title, :content, :createdAt)'
+        );
 
-        
-        $sql = "INSERT INTO post (title, content,created_at) VALUES ('$title','$content',CURRENT_TIME())";
-        $stmt= $db->prepare($sql);
-        $stmt->execute();
-    }
+        $addPost->bindValue(':id_post', $post->getId_post(), \PDO::PARAM_INT);
+        $addPost->bindValue(':title', $post->getTitle(), \PDO::PARAM_STR);
+        $addPost->bindValue(':content', $post->getContent(), \PDO::PARAM_STR);
+        $addPost->bindValue(':createdAt', $post->getCreated_at(), \PDO::PARAM_STR);
+        $addPost->execute();
+}
+
 }
 
