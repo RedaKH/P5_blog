@@ -14,31 +14,39 @@ class Login extends \Core\Controller
 {
     public function __construct()
     {
+        $login = new ModelsLogin;
+
     }
 
 
 
     public function login_post()
     {
-        $login = new ModelsLogin;
-
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-       
-        $userData = $login->can_login($username,$password);
 
-        if($userData) {
+
+  
+        $userData = $this->can_login($username,$password);
+
+
+       
+
+        if(isset($_POST['submit'])) {
+            
             session_start();
                 $_SESSION['user'] = $userData;
-                header('Location: ../view/dashboard.php');
+                header('Location:Home/dashboard.php');
         } else {
             return "Invalid Username or Password";
         
 
 
 
-    }}
+    }
+    View::render('Home/login.php');
+}
 
     public function log_out(){
         session_start();
