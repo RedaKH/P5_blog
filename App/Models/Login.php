@@ -19,16 +19,12 @@ class Login extends \Core\Model
      *
      * @return array
      */
-    public static function can_login($username)
+    public static function can_login($username,$password)
     {
         $db = static::getDB();
-        $sql = "SELECT * FROM `user` WHERE `username` = :username";
-        $stmt = $db->pdo->prepare($sql);
-        $stmt->bindValue(':username', $username);
-        $stmt->execute();
-        $stmt->rowCount();
-
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        $myQuery = "SELECT * FROM user WHERE username = '".$username."' and password = '".$password."'";
+        $results = $db->query($myQuery);
+        return $results->fetch_array(); // return the result 
     }
     
 }
