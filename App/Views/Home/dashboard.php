@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +10,9 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Welcome</h1>
+    <h1>Welcome<?php echo $_SESSION["username"]; ?></h1>
 
-    <a href="?logout=true" class="">Logout</a>
+    <a href="log_out" class="">Logout</a>
     
 </body>
 </html>

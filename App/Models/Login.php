@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 use PDO;
@@ -9,8 +10,8 @@ use PDO;
  * PHP version 7.0
  */
 class Login extends \Core\Model
-{ 
-   
+{
+
 
 
     /**
@@ -18,25 +19,16 @@ class Login extends \Core\Model
      *
      * @return array
      */
-    public static function can_login($username, $password)
+    public static function can_login($username)
     {
         $db = static::getDB();
-        $sql = "SELECT * FROM users WHERE user = ? AND password = ?";
-        $stmt = $db->prepare($sql);
-        $stmt->execute([$username, $password]);
-        if ($stmt->rowCount()) {
-            $data = $stmt->fetch();
-            $SESSION['user'] = $data['user'];
-        }
+        $sql = "SELECT * FROM `user` WHERE `username` = :username";
+        $stmt = $db->pdo->prepare($sql);
+        $stmt->bindValue(':username', $username);
+        $stmt->execute();
+        $stmt->rowCount();
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+    
 }
-
-
-
-    
-
-    
-
-
-
-    

@@ -1,14 +1,20 @@
 
 
-<form action="" method="POST">
-  <label> Username </label>
-  <input type="text" name="username">
-  <label for="password"> Password </label>
-  <input type="password" name="password">
 
+<div class="container-login">
+    <div class="wrapper-login">
+        <h2>Sign in</h2>
 
+        <form action="" method ="POST">
+            <input type="text" placeholder="Username *" name="username">
+            <span class="invalidFeedback">
+            </span>
 
-<input type="submit" name="submit" value="submit">
+            <input type="password" placeholder="Password *" name="password">
+            <span class="invalidFeedback">
+            </span>
+
+            <button id="submit" type="submit" value="submit">Submit</button>
 
 
 

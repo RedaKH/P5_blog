@@ -34,11 +34,5 @@ class User extends \Core\Model
         $stmt->execute();
     }
 
-    public static function connectUser($email,$password)
-    {
-        $db = static::getDB();
-        $sql = $db->query("SELECT * FROM user WHERE email = '$email' AND password = '$password'");
-        $sql->execute();
-    }
-
+    
 }
