@@ -33,7 +33,7 @@ class Login extends \Core\Controller
 
        
 
-        if(isset($_POST['submit'])) {
+        if($userData) {
             
             session_start();
                 $_SESSION['user'] = $userData;
