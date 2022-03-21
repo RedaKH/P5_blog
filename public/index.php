@@ -40,6 +40,8 @@ $router->add('comment/remove_comments', ['controller' => 'comment', 'action' => 
 $router->add('comment/edit_comments', ['controller' => 'comment', 'action' => 'edit_comments']);
 $router->add('login/login_post', ['controller' => 'login', 'action' => 'login_post']);
 $router->add('login/log_out', ['controller' => 'login', 'action' => 'log_out']);
+$router->add('home/list_articles', ['controller' => 'Home', 'action' => 'list_articles']);
+
 
 
 

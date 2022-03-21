@@ -8,7 +8,7 @@
     <title>Page d'accueil</title>
 </head>
 <body>
-    <?php include 'navbar.php'; ?>
+    <?php include 'includes/navbar.php'; ?>
 
  <!-- Header - set the background image for the header in the line below-->
  <header class="py-5 bg-image-full" style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1600x900')">
@@ -48,7 +48,7 @@
             </div>
         </section>
 
-        <?php include 'footer.php'; ?>
+        <?php include 'includes/footer.php'; ?>
 
     
 </body>
