@@ -29,7 +29,7 @@ class Posts extends \Core\Controller
           $title=$_POST['title'];
           $content=$_POST['content'];
 
-          $posts = $postModel->setPost($title,$content);
+          $posts = $postModel->AddPost($title,$content);
 
 
          
@@ -54,7 +54,7 @@ class Posts extends \Core\Controller
             $postModel = new ModelsPosts;
             $display_posts = $postModel->getPosts();
 
-            View::render('Home/show_posts.php',['post' => $display_posts]);
+            View::render('Home/list_articles.php',['post' => $display_posts]);
 
 
 
