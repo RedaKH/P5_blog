@@ -69,10 +69,12 @@ class Posts extends \Core\Model
         $db = static::getDB();
 
          
-        $stmt= $db->prepare("SELECT * FROM post WHERE id_post = :id LIMIT 1");
+        $stmt= $db->prepare("SELECT * FROM post WHERE id_post = :id ");
         $stmt->execute(['id' => $id_post]); 
-        $stmt->fetch();
+        return $stmt->fetch();
     }
+
+   
 
     
 

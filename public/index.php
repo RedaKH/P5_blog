@@ -36,8 +36,6 @@ $router->add('posts/store_posts', ['controller' => 'posts', 'action' => 'store_p
 $router->add('posts/show_post', ['controller' => 'posts', 'action' => 'show_post']);
 $router->add('posts/pages', ['controller' => 'posts', 'action' => 'pages']);
 $router->add('posts/selectPost', ['controller' => 'posts', 'action' => 'selectPost']);
-$router->add('posts/showApost', ['controller' => 'posts', 'action' => 'selectPost']);
-
 
 
 

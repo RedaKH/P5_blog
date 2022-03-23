@@ -79,12 +79,16 @@ class Posts extends \Core\Controller
             $postModel = new ModelsPosts;
 
             $id_post = $_GET['id_post'];
-            $findPost = $postModel->FindbyId($id_post);
+            $findPost = $postModel->FindByID($id_post);
+
             
             
 
-            View::render('Home/show_article.php',['post'=>$findPost]);
+            View::render('Home/show_article.php',compact('findPost'));
         }
+
+        
+
 
         
 
