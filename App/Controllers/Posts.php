@@ -61,5 +61,32 @@ class Posts extends \Core\Controller
 
         }
 
+        public function pages(){
+
+            $postModel = new ModelsPosts;
+            $page = $postModel->pagination();
+            View::render('Home/list_articles.php',['page'=>$page]);
+
+
+
+           
+
+
+
+        }
+        public function selectPost()
+        {
+            $postModel = new ModelsPosts;
+
+            $id_post = $_GET['id_post'];
+            $findPost = $postModel->FindbyId($id_post);
+            
+            
+
+            View::render('Home/show_article.php',['post'=>$findPost]);
+        }
+
+        
+
    
 }
