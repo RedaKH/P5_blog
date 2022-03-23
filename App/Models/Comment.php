@@ -61,7 +61,7 @@ class Comment extends \Core\Model
          
         $stmt= $db->prepare("SELECT * FROM comment WHERE id_com= :id LIMIT 1");
         $stmt->execute(['id' => $id_com]); 
-        $selectFindbyId = $stmt->fetch();
+        $stmt->fetch();
 
 
 
