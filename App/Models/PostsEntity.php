@@ -2,7 +2,7 @@
 namespace App\Models;
 
 
-class PostsEntity
+class PostsEntity extends \Core\Model
 { 
     private $id_post;
     private $title;
@@ -17,7 +17,7 @@ class PostsEntity
     /**
      * Get the value of id_post
      */ 
-    public function getId_post()
+    public function getId_post():int
     {
         return $this->id_post;
     }
@@ -37,7 +37,7 @@ class PostsEntity
     /**
      * Get the value of title
      */ 
-    public function getTitle()
+    public function getTitle():string
     {
         return $this->title;
     }
@@ -57,7 +57,7 @@ class PostsEntity
     /**
      * Get the value of created_at
      */ 
-    public function getCreated_at()
+    public function getCreated_at():string
     {
         return $this->created_at;
     }
@@ -77,7 +77,7 @@ class PostsEntity
     /**
      * Get the value of content
      */ 
-    public function getContent()
+    public function getContent():string
     {
         return $this->content;
     }

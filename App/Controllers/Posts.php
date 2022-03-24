@@ -3,6 +3,8 @@ namespace App\Controllers;
 
 use App\Models\Posts as ModelsPosts;
 use \Core\View;
+Use App\Models\PostsEntity;
+
 
 /**
  * Home controller

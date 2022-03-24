@@ -5,10 +5,16 @@ namespace App\Models;
 use PDO;
 
 
+
+
 class Posts extends \Core\Model
 {
-    private $title;
-    private $content;
+  
+
+    public function __construct()
+    {
+        
+    }
 
     /**
      * Get all the posts as an associative array
