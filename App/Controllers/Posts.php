@@ -46,7 +46,7 @@ class Posts extends \Core\Controller
 
         }else {
             
-            View::renderTemplate('Home/post.php');
+            View::render('Home/post.php');
 
         }}
 
