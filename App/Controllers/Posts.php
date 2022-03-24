@@ -116,6 +116,11 @@ class Posts extends \Core\Controller
             # code...
         }
 
+        public function UpdatePost()
+        {
+            # code...
+        }
+
         
 
 
