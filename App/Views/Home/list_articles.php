@@ -14,8 +14,9 @@
     <?php include 'includes/navbar.php'; ?>
     <form action="" method="post">
         <h2 class="text-center mb-5 mt-5 write-white"><span class="underline">A</span>rticles</h2>
+        <?php foreach ($post as $posts) { ?>
+
         <div class="container">
-            <?php foreach ($post as $posts) { ?>
 
                 <div class="row">
 
@@ -31,7 +32,15 @@
                                 <p class="card-text">
                                     <small class="text-muted">Date de création : <?php echo htmlspecialchars($posts['created_at']); ?></small>
                                 </p>
-                                <a class="btn btn-primary" href='selectPost?id_post=<?php echo $posts['id_post'] ?>'>Read more →</a>                            </div>
+                                <a class="btn btn-primary" href='selectPost?id_post=<?php echo $posts['id_post'] ?>'>Read more →</a>   
+                                <a class="btn btn-primary" href='DeletePost?id_post=<?php echo $posts['id_post'] ?>'>Supprimer</a> 
+                                <a class="btn btn-primary" href='UpdatePost?id_post=<?php echo $posts['id_post'] ?>'>Mettre a jour</a>   
+  
+
+                            
+                            </div>
+      
+                            </div>
 
                         </div>
 

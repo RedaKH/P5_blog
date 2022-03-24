@@ -3,7 +3,6 @@ namespace App\Controllers;
 
 use App\Models\Posts as ModelsPosts;
 use \Core\View;
-Use App\Models\PostsEntity;
 
 
 /**
@@ -31,7 +30,7 @@ class Posts extends \Core\Controller
           $title=$_POST['title'];
           $content=$_POST['content'];
 
-          $posts = $postModel->AddPost($title,$content);
+          $postModel->AddPost($title,$content);
 
 
          
@@ -63,7 +62,7 @@ class Posts extends \Core\Controller
 
         }
 
-        public function pages(){
+       /* public function pages(){
 
             $postModel = new ModelsPosts;
             $page = $postModel->pagination();
@@ -75,7 +74,7 @@ class Posts extends \Core\Controller
 
 
 
-        }
+       }*/
         public function selectPost()
         {
             $postModel = new ModelsPosts;
@@ -87,6 +86,34 @@ class Posts extends \Core\Controller
             
 
             View::render('Home/show_article.php',compact('findPost'));
+        }
+        
+        public function DeletePost()
+        {
+            $postModel = new ModelsPosts;
+            $id_post = $_GET['id_post'];
+            $delete=$postModel->deletePost($id_post);
+            $this->show_post();
+
+            
+
+           
+
+            if($delete===true){
+                echo "data deleted success";
+
+
+
+
+
+               
+
+ 
+
+
+            }
+
+            # code...
         }
 
         

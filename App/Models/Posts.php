@@ -24,52 +24,52 @@ class Posts extends \Core\Model
     public static function getPosts()
     {
         $db = static::getDB();
-        $stmt = $db->query('SELECT * FROM post');
+        $stmt = $db->query('SELECT * FROM post ORDER BY created_at DESC');
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function AddPost(PostsEntity $post)
+    public function AddPost($title,$content)
     {
         $db = static::getDB();
         $addPost = $db->prepare(
-            'INSERT INTO Post (id_post, title, content,createdAt) 
-            VALUES (:id_post, :title, :content, :createdAt)'
+            'INSERT INTO post (title, content,created_at) 
+            VALUES (:title, :content,CURRENT_TIME())'
         );
 
-        $addPost->bindValue(':id_post', $post->getId_post(), \PDO::PARAM_INT);
-        $addPost->bindValue(':title', $post->getTitle(), \PDO::PARAM_STR);
-        $addPost->bindValue(':content', $post->getContent(), \PDO::PARAM_STR);
-        $addPost->bindValue(':createdAt', $post->getCreated_at(), \PDO::PARAM_STR);
+        $addPost->bindValue(':title', $title, \PDO::PARAM_STR);
+        $addPost->bindValue(':content', $content, \PDO::PARAM_STR);
         $addPost->execute();
     }
 
-    public function pagination()
+    public function deletePost($id_post)
     {
         $db = static::getDB();
 
-        $articlesPerPage=10;
-        $articlestotalquery=$db->query('SELECT ID from post');
-        $articlesTotal= $articlestotalquery->rowCount();
-        $totalPages = ceil($articlesTotal/$articlesPerPage);
-
-        if (isset($_GET['page']) AND !empty($_GET['page']) AND $_GET['page']>0 AND $_GET['page']<=$totalPages) {
-            $_GET['page']= intval($_GET['page']);
-            $currentPage = $_GET['page'];
-        }else {
-            $currentPage= 1;
-        }
-        $start = ($currentPage-1)*$articlesPerPage;
-        $db->query('SELECT * FROM post LIMIT 4'.$start.','.$articlesPerPage);
-
-
-
-
-
-
-
-
+         
+        $stmt= $db->prepare("DELETE FROM post WHERE id_post= $id_post");
+        $deleteComments=$stmt->execute(array($id_post));
+        return $deleteComments;
     }
 
+   /* public function pagination()
+    {
+        $db = static::getDB();
+
+        $articlesPerPage = 10;
+        $articlestotalquery = $db->query('SELECT ID from post');
+        $articlesTotal = $articlestotalquery->rowCount();
+        $totalPages = ceil($articlesTotal / $articlesPerPage);
+
+        if (isset($_GET['page']) and !empty($_GET['page']) and $_GET['page'] > 0 and $_GET['page'] <= $totalPages) {
+            $_GET['page'] = intval($_GET['page']);
+            $currentPage = $_GET['page'];
+        } else {
+            $currentPage = 1;
+        }
+        $start = ($currentPage - 1) * $articlesPerPage;
+        $db->query('SELECT * FROM post LIMIT 4' . $start . ',' . $articlesPerPage);
+    }
+*/
      public function FindByID($id_post)
     {
         $db = static::getDB();
