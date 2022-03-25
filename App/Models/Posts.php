@@ -9,11 +9,10 @@ use PDO;
 
 class Posts extends \Core\Model
 {
-  
+
 
     public function __construct()
     {
-        
     }
 
     /**
@@ -28,7 +27,7 @@ class Posts extends \Core\Model
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function AddPost($title,$content)
+    public function setPost($title, $content)
     {
         $db = static::getDB();
         $addPost = $db->prepare(
@@ -45,13 +44,13 @@ class Posts extends \Core\Model
     {
         $db = static::getDB();
 
-         
-        $stmt= $db->prepare("DELETE FROM post WHERE id_post= $id_post");
-        $deleteComments=$stmt->execute(array($id_post));
+
+        $stmt = $db->prepare("DELETE FROM post WHERE id_post= $id_post");
+        $deleteComments = $stmt->execute(array($id_post));
         return $deleteComments;
     }
 
-   /* public function pagination()
+    /* public function pagination()
     {
         $db = static::getDB();
 
@@ -70,19 +69,22 @@ class Posts extends \Core\Model
         $db->query('SELECT * FROM post LIMIT 4' . $start . ',' . $articlesPerPage);
     }
 */
-     public function FindByID($id_post)
+    public function FindByID($id_post)
     {
         $db = static::getDB();
 
-         
-        $stmt= $db->prepare("SELECT * FROM post WHERE id_post = :id ");
-        $stmt->execute(['id' => $id_post]); 
+
+        $stmt = $db->prepare("SELECT * FROM post WHERE id_post = :id ");
+        $stmt->execute(['id' => $id_post]);
         return $stmt->fetch();
     }
 
-   
+    public function UpdatePost($title,$content,$id_post)
+    {
+        $db = static::getDB();
 
-    
-
-
+        $sql = "UPDATE post SET title=?, content=?, WHERE id=?";
+        $stmt = $db->prepare($sql);
+        $stmt->execute([$title, $content,$id_post]);
+    }
 }

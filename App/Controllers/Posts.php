@@ -30,7 +30,7 @@ class Posts extends \Core\Controller
           $title=$_POST['title'];
           $content=$_POST['content'];
 
-          $postModel->AddPost($title,$content);
+          $postModel->setPost($title,$content);
 
 
          
@@ -116,9 +116,21 @@ class Posts extends \Core\Controller
             # code...
         }
 
-        public function UpdatePost()
+        public function UpdateaPost()
         {
-            # code...
+            $postModel = new ModelsPosts;
+            $id_post = $_GET['id_post'];
+
+            if($_POST['submit']){
+                $title = $_POST['title'];
+                $content = $_POST['content'];
+               $postModel->UpdatePost($id_post,$title,$content);
+
+
+            }
+
+
+            
         }
 
         
