@@ -93,7 +93,6 @@ class Posts extends \Core\Controller
             $postModel = new ModelsPosts;
             $id_post = $_GET['id_post'];
             $delete=$postModel->deletePost($id_post);
-            $this->show_post();
 
             
 
@@ -120,14 +119,18 @@ class Posts extends \Core\Controller
         {
             $postModel = new ModelsPosts;
             $id_post = $_GET['id_post'];
+            $findPost = $postModel->FindByID($id_post);
 
-            if($_POST['submit']){
+
+            if(isset($_POST['submit'])){
                 $title = $_POST['title'];
                 $content = $_POST['content'];
-               $postModel->UpdatePost($id_post,$title,$content);
+               $postModel->UpdatePost($title,$content,$id_post);
 
 
             }
+
+            View::render('Home/update_post.php',compact('findPost'));
 
 
             

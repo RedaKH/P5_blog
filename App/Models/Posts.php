@@ -83,8 +83,9 @@ class Posts extends \Core\Model
     {
         $db = static::getDB();
 
-        $sql = "UPDATE post SET title=?, content=?, WHERE id=?";
+        $sql = "UPDATE post SET title=?, content=? WHERE id_post=?";
         $stmt = $db->prepare($sql);
-        $stmt->execute([$title, $content,$id_post]);
+         $stmt->execute([$title, $content,$id_post]);
+        
     }
 }

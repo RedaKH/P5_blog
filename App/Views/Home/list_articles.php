@@ -34,7 +34,7 @@
                                 </p>
                                 <a class="btn btn-primary" href='selectPost?id_post=<?php echo $posts['id_post'] ?>'>Read more →</a>   
                                 <a class="btn btn-primary" href='DeletePost?id_post=<?php echo $posts['id_post'] ?>'>Supprimer</a> 
-                                <a class="btn btn-primary" href='UpdatePost?id_post=<?php echo $posts['id_post'] ?>'>Mettre a jour</a>   
+                                <a class="btn btn-primary" href='UpdateaPost?id_post=<?php echo $posts['id_post'] ?>'>Mettre a jour</a>   
   
 
                             
