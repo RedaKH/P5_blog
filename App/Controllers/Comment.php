@@ -1,14 +1,9 @@
 <?php
-namespace App\Controllers;
 
 use App\Models\Comment as ModelsComment;
 use \Core\View;
 
-/**
- * Home controller
- *
- * PHP version 7.0
- */
+
 class Comment extends \Core\Controller
 {
 
@@ -18,8 +13,7 @@ class Comment extends \Core\Controller
      * @return void
      */
     public function indexAction()
-    {
-        $commentsModel = new ModelsComment;
+    { $commentsModel = new ModelsComment;
 
         View::render('Home/show_comments.php');
     }
@@ -31,7 +25,7 @@ class Comment extends \Core\Controller
 
         if(isset($_POST['submit'])) {
           $comment= $_POST['comment'];
-         $comments = $commentsModel->setComment($comment);
+         $commentsModel->setComment($comment);
 
 
 
@@ -117,20 +111,7 @@ class Comment extends \Core\Controller
 
         }
 
-        public function update_comments(){
-            $commentsModel = new ModelsComment;
-            $com_id = $_POST['com_id'];
-            $update_com = $_POST['update_com'];
-
-            $data = array('update_com' => $update_com );
-
-        
-
-
-
-
-
-        }
+      
         
         
 }

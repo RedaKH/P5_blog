@@ -17,7 +17,7 @@ class Home extends \Core\Controller
      *
      * @return void
      */
-    public function indexAction()
+    public function index()
     {
         View::render('Home/homepage.php');
     }

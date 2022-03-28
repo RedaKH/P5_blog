@@ -17,7 +17,6 @@
             <h1>created_at : </h1>
             <h2><?php echo htmlspecialchars($comments['time']); ?></h2><br>
             <a href='remove_comments?id_com=<?php echo $comments['id_com'] ?>'>Delete</a>
-            <a href='edit_comments?id_com=<?php echo $comments['id_com'] ?>'>Edit</a>
 
 
 

@@ -66,7 +66,7 @@ class Posts extends \Core\Controller
             $postModel = new ModelsPosts;
             $display_posts = $postModel->getPosts();
 
-            View::render('Home/list_articles-admin.php',['post' => $display_posts]);
+            View::render('Home/list_articles_admin.php',['post' => $display_posts]);
 
 
 

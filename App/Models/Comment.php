@@ -1,8 +1,6 @@
 <?php
 namespace App\Models;
-namespace App\Models\Entity;
 
-use App\Models\Entity\CommentEntity;
 
 
 
