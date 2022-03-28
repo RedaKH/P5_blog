@@ -60,7 +60,20 @@ class Posts extends \Core\Controller
 
 
 
+
         }
+        public function ArticlesAdmin(){
+            $postModel = new ModelsPosts;
+            $display_posts = $postModel->getPosts();
+
+            View::render('Home/list_articles-admin.php',['post' => $display_posts]);
+
+
+
+
+
+        }
+
 
        /* public function pages(){
 
@@ -99,7 +112,6 @@ class Posts extends \Core\Controller
            
 
             if($delete===true){
-                echo "data deleted success";
 
 
 

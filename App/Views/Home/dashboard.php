@@ -10,9 +10,12 @@ session_start();
     <title>Document</title>
 </head>
 <body>
+    <?php include 'includes/navbar-admin.php' ?>
     <h1>Welcome<?php echo $_SESSION["username"]; ?></h1>
 
     <a href="log_out" class="">Logout</a>
+
+    <?php include 'includes/footer.php'?>
     
 </body>
 </html>

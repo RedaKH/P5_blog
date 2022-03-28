@@ -26,4 +26,11 @@ class Home extends \Core\Controller
     {
         View::render('Home/list_articles.php');
     }
+
+    public function contact()
+    {
+        View::render('Home/contact.php');
+    }
+    
+
 }
