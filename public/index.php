@@ -41,12 +41,11 @@ $router->add('posts/pages', ['controller' => 'posts', 'action' => 'pages']);
 $router->add('posts/selectPost', ['controller' => 'posts', 'action' => 'selectPost']);
 $router->add('posts/DeletePost', ['controller' => 'posts', 'action' => 'DeletePost']);
 $router->add('posts/UpdateaPost', ['controller' => 'posts', 'action' => 'UpdateaPost']);
+$router->add('comment/store_comments', ['controller' => 'comment', 'action' => 'store_commments']);
 
-$router->add('comment/store_comments', ['controller' => 'comment', 'action' => 'store_comments']);
-$router->add('comment/show_comments', ['controller' => 'comment', 'action' => 'show_comments']);
-$router->add('comment/remove_comments', ['controller' => 'comment', 'action' => 'remove_comments']);
-$router->add('comment/edit_comments', ['controller' => 'comment', 'action' => 'edit_comments']);
-$router->add('login/login_post', ['controller' => 'login', 'action' => 'login_post']);
+
+
+$router->add('login/LoginPost', ['controller' => 'login', 'action' => 'LoginPost']);
 $router->add('login/log_out', ['controller' => 'login', 'action' => 'log_out']);
 
 

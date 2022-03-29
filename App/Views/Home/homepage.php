@@ -25,7 +25,7 @@
                         <h2>Bienvenue sur mon blog ! </h2>
                         <p class="lead">Vous trouverez l'ensemble de mes projets  que j'ai fait dans des articles sur mon blog </p>
                         <p class="mb-0">En ce qui me concerne mon parcours j'ai fais un BTS SIO (Service informatiques aux organisations) en tant que développeur 
-                            et là actuellement je fais une formation chez OpenClassrooms en tant que développeur PHP/Symfony, je suis également passionné de jeux vidéo étant joueur compétitif j'aime relever des nouveaux challenges et me surpasser, j'aime aussi la musique
+                            et là actuellement je fais une formation chez OpenClassrooms en tant que développeur PHP/Symfony, je suis également passionné de jeux vidéo étant joueur compétitif j'aime relever des nouveaux challenges et me surpasser. J'aime aussi la musique, le cinéma
                             et de la japanimation également des mangas. 
                         </p>
                     </div>

@@ -20,7 +20,7 @@ class Login extends \Core\Controller
 
 
 
-    public function login_post()
+    public function LoginPost()
     {
         $username = $_POST['username'];
         $password = $_POST['password'];

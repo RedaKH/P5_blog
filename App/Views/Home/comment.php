@@ -1,7 +1,7 @@
 
 <form action="" method="POST">
-<label for="username">Votre nom : </label><br/>
-<input type="text" name="username">
+<label for="name">Votre nom : </label><br/>
+<input type="text" name="name">
 
     <label for="comment">commentaire : </label><br/>
 

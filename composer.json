@@ -2,7 +2,8 @@
     "require": {
         "twig/twig": "~3.0",
         "symfony/routing": "^5.4",
-        "fakerphp/faker": "^1.19"
+        "fakerphp/faker": "^1.19",
+        "phpmailer/phpmailer": "^6.6"
     },
     "autoload": {
         "psr-4": {

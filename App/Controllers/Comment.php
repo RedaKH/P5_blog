@@ -1,13 +1,12 @@
 <?php
+namespace App\Controllers;
 
 use App\Models\Comment as ModelsComment;
 use \Core\View;
 
-
 class Comment extends \Core\Controller
 {
-
-    /**
+     /**
      * Show the index page
      *
      * @return void
@@ -25,7 +24,9 @@ class Comment extends \Core\Controller
 
         if(isset($_POST['submit'])) {
           $comment= $_POST['comment'];
-         $commentsModel->setComment($comment);
+          $name= $_POST['name'];
+
+         $commentsModel->setComment($name,$comment);
 
 
 
@@ -41,7 +42,7 @@ class Comment extends \Core\Controller
 
         }else {
             
-            View::render('Home/list_ar.php');
+            View::render('Home/comment.php');
 
         }}
 
@@ -110,8 +111,4 @@ class Comment extends \Core\Controller
 
 
         }
-
-      
-        
-        
 }

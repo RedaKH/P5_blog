@@ -30,14 +30,16 @@ class Comment extends \Core\Model
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function setComment($comment){
+    public function setComment($name,$comment){
         $db = static::getDB();
-        $sql = "INSERT INTO comment ( content,time) VALUES ('$comment',CURRENT_TIME())";
-  
+        $addComment = $db->prepare(
+            'INSERT INTO comment (name,content,time) 
+            VALUES (:name, :content,CURRENT_TIME())'
+        );
 
-        
-        $stmt= $db->prepare($sql);
-        $stmt->execute();
+        $addComment->bindValue(':name', $name, \PDO::PARAM_STR);
+        $addComment->bindValue(':content', $comment, \PDO::PARAM_STR);
+        $addComment->execute();
     }
   
 
@@ -65,11 +67,6 @@ class Comment extends \Core\Model
 
     }
 
-    public function update($data,$com_id){
-
-        
-
-    }
 
     
 
