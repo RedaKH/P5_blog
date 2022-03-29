@@ -22,29 +22,22 @@ class Login extends \Core\Controller
 
     public function LoginPost()
     {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-
-
-
-  
-        $userData = $this->can_login($username,$password);
-
-
        
 
-        if($userData) {
-            
-            session_start();
-                $_SESSION['user'] = $userData;
-                header('Location:Home/dashboard.php');
-        } else {
-            return "Invalid Username or Password";
+
         
 
 
 
-    }
+  
+
+
+       
+
+
+
+
+    
     View::render('Home/login.php');
 }
 
