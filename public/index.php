@@ -37,7 +37,6 @@ $router->add('user/auth', ['controller' => 'user', 'action' => 'auth']);
 $router->add('posts/store_posts', ['controller' => 'posts', 'action' => 'store_posts']);
 $router->add('posts/show_post', ['controller' => 'posts', 'action' => 'show_post']);
 $router->add('posts/ArticlesAdmin', ['controller' => 'posts', 'action' => 'ArticlesAdmin']);
-
 $router->add('posts/pages', ['controller' => 'posts', 'action' => 'pages']);
 $router->add('posts/selectPost', ['controller' => 'posts', 'action' => 'selectPost']);
 $router->add('posts/DeletePost', ['controller' => 'posts', 'action' => 'DeletePost']);

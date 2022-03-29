@@ -41,7 +41,7 @@ class Comment extends \Core\Controller
 
         }else {
             
-            View::render('Home/comment.php');
+            View::render('Home/list_ar.php');
 
         }}
 

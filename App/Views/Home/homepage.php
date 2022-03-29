@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <title>Page d'accueil</title>
+    <title> Page d'accueil</title>
 </head>
 <body>
     <?php include 'includes/navbar.php'; ?>
@@ -14,8 +14,7 @@
  <header class="py-5 bg-image-full" style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1600x900')">
             <div class="text-center my-5">
                 <img class="img-fluid rounded-circle mb-4" src="https://dummyimage.com/150x150/6c757d/dee2e6.jpg" alt="..." />
-                <h1 class="text-white fs-3 fw-bolder">Full Width Pics</h1>
-                <p class="text-white-50 mb-0">Landing Page Template</p>
+                <h1 class="text-white fs-3 fw-bolder">Réda Khaldi</h1>
             </div>
         </header>
         <!-- Content section-->
@@ -23,9 +22,12 @@
             <div class="container my-5">
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
-                        <h2>Full Width Backgrounds</h2>
-                        <p class="lead">A single, lightweight helper class allows you to add engaging, full width background images to sections of your page.</p>
-                        <p class="mb-0">The universe is almost 14 billion years old, and, wow! Life had no problem starting here on Earth! I think it would be inexcusably egocentric of us to suggest that we're alone in the universe.</p>
+                        <h2>Bienvenue sur mon blog ! </h2>
+                        <p class="lead">Vous trouverez l'ensemble de mes projets  que j'ai fait dans des articles sur mon blog </p>
+                        <p class="mb-0">En ce qui me concerne mon parcours j'ai fais un BTS SIO (Service informatiques aux organisations) en tant que développeur 
+                            et là actuellement je fais une formation chez OpenClassrooms en tant que développeur PHP/Symfony, je suis également passionné de jeux vidéo étant joueur compétitif j'aime relever des nouveaux challenges et me surpasser, j'aime aussi la musique
+                            et de la japanimation également des mangas. 
+                        </p>
                     </div>
                 </div>
             </div>
@@ -39,10 +41,33 @@
         <section class="py-5">
             <div class="container my-5">
                 <div class="row justify-content-center">
+  
+  
                     <div class="col-lg-6">
-                        <h2>Engaging Background Images</h2>
-                        <p class="lead">The background images used in this template are sourced from Unsplash and are open source and free to use.</p>
-                        <p class="mb-0">I can't tell you how many people say they were turned off from science because of a science teacher that completely sucked out all the inspiration and enthusiasm they had for the course.</p>
+                        <p class="mb-0"><a class="btn btn-primary btn-lg rounded mt-5" role="button" href="/assets/docs/CV.pdf" download="">Télécharger mon CV</a></p>
+                        <fieldset>
+                                <legend>Me contacter</legend>
+                                <small class="text-muted">N'hésitez pas à me contacter et je vous répondrai par email.</small>
+                                <div>
+                                    <label for="emailAddress" class="form-label mt-4">Adresse email</label>
+                                    <input name="emailAddress" type="email" class="form-control" id="emailAddress" aria-describedby="emailHelp" placeholder="Votre adresse email">
+                                </div>
+                                <div class="row g-3">
+                                    <div class="col">
+                                        <label for="firstname" class="form-label mt-4">Prénom</label>
+                                        <input name="firstname" type="text" class="form-control" id="firstname" placeholder="Votre prénom">
+                                    </div>
+                                    <div class="col">
+                                        <label for="lastname" class="form-label mt-4">Nom</label>
+                                        <input name="lastname" type="text" class="form-control" id="lastname" placeholder="Votre nom">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="message" class="form-label mt-4">Message</label>
+                                    <textarea name="message" class="form-control" id="message" rows="3" placeholder="Votre message"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary rounded mt-3">Envoyer</button>
+                            </fieldset>
                     </div>
                 </div>
             </div>
