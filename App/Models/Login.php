@@ -19,12 +19,12 @@ class Login extends \Core\Model
      *
      * @return array
      */
-    public static function can_login($username,$password)
+    public static function canLogin($username,$password)
     {
         $db = static::getDB();
         $myQuery = "SELECT * FROM user WHERE username = '".$username."' and password = '".$password."'";
         $results = $db->query($myQuery);
-        return $results->fetch_array(); 
+        return $results->fetch(); 
     }
     
 }

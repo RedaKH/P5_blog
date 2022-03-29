@@ -14,7 +14,6 @@ class Login extends \Core\Controller
 {
     public function __construct()
     {
-        $login = new ModelsLogin;
 
     }
 
@@ -22,29 +21,23 @@ class Login extends \Core\Controller
 
     public function LoginPost()
     {
-       
+        $login = new ModelsLogin;
+        $username = $_POST['username'];
+        $password = $_POST['password'];
 
-
-        
-
-
-
-  
-
-
-       
-
-
-
-
-    
-    View::render('Home/login.php');
-}
-
-    public function log_out(){
-        session_start();
-        if(session_destroy()){
-            header("Location : login.php");
+        if ($login->canLogin($username, $password)) {
+            $_SESSION['username'] = $username;
+            return header('Location :Home/dashboard.php');
+        } else {
+            echo "erreur de login ou mot de passe";
         }
+
+        View::render('Home/login.php');
     }
+
+    public function logout(){
+           session_destroy();
+           return header('Location : login.php');
+        }
+    
 }
