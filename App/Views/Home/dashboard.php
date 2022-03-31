@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,6 +12,8 @@ session_start();
 </head>
 <body>
     <?php include 'includes/navbar-admin.php' ?>
+
+    
     <h1>Welcome<?php echo $_SESSION['username']; ?></h1>
 
     <a href="login/logout" class="">Logout</a>

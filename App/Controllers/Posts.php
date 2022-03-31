@@ -51,7 +51,7 @@ class Posts extends \Core\Controller
 
         }}
 
-        public function show_post(){
+        public function showPost(){
             $postModel = new ModelsPosts;
             $display_posts = $postModel->getPosts();
 

@@ -21,16 +21,17 @@ class Home extends \Core\Controller
     {
         View::render('Home/homepage.php');
     }
+    public function homePage()
+    {
+        View::render('Home/homepage.php');
+    }
 
     public function list_articles()
     {
         View::render('Home/list_articles.php');
     }
 
-    public function contact()
-    {
-        View::render('Home/contact.php');
-    }
+
     
 
 }
