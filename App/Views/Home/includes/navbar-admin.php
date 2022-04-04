@@ -15,13 +15,10 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="home/index">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="posts/ArticlesAdmin">Articles</a></li>
-                        <li class="nav-item"><a class="nav-link" href="posts/store_post"> Créer un article</a></li>
-                        <li class="nav-item"><a class="nav-link" href="comment/show_posts"> Liste des commentaires</a></li>
-
-
-                        <li class="nav-item"><a class="nav-link" href="home/contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/home/homePage">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/posts/ArticlesAdmin">Articles</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/posts/store_posts"> Créer un article</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/comment/showComments"> Liste des commentaires</a></li>
                     </ul>
                 </div>
             </div>

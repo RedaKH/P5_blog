@@ -31,6 +31,8 @@ $router->add('', ['controller' => 'home', 'action' => 'index']);
 
 $router->add('{controller}/{action}');
 $router->add('home/homePage', ['controller' => 'home', 'action' => 'homePage']);
+$router->add('home/login', ['controller' => 'home', 'action' => 'login']);
+
 
 $router->add('user/store_user', ['controller' => 'user', 'action' => 'store_user']);
 $router->add('user/show_user', ['controller' => 'user', 'action' => 'show_user']);
@@ -42,8 +44,9 @@ $router->add('posts/selectPost', ['controller' => 'posts', 'action' => 'selectPo
 $router->add('posts/DeletePost', ['controller' => 'posts', 'action' => 'DeletePost']);
 $router->add('posts/UpdateaPost', ['controller' => 'posts', 'action' => 'UpdateaPost']);
 $router->add('comment/store_comments', ['controller' => 'comment', 'action' => 'store_commments']);
+$router->add('comment/showComments',['controller'=>'comment','action'=>'showComments']);
 
-$router->add('login/LoginPost', ['controller' => 'login', 'action' => 'LoginPost']);
+$router->add('login/loginPost', ['controller' => 'login', 'action' => 'loginPost']);
 $router->add('login/log_out', ['controller' => 'login', 'action' => 'log_out']);
 
 

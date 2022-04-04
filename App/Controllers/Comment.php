@@ -46,7 +46,7 @@ class Comment extends \Core\Controller
 
         }}
 
-        public function show_comments(){
+        public function showComments(){
             $commentsModel = new ModelsComment;
             $display_comments = $commentsModel->getComments();
                 
@@ -57,6 +57,12 @@ class Comment extends \Core\Controller
 
 
 
+        }
+
+        public function CommentbyPost()
+        {
+
+            # code...
         }
 
         public function remove_comments(){

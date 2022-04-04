@@ -9,6 +9,8 @@
 </head>
 
 <body>
+<?php include 'includes/navbar-admin.php'?>
+
     <form action="" method="POST">
         <?php foreach ($comment as $comments) { ?>
 
@@ -25,7 +27,7 @@
 
 
         <?php } ?>
-
+<?php include 'includes/footer.php'?>
 
 
     </form>

@@ -1,22 +1,24 @@
 
-<?php session_start(); 
+<?php
 include 'includes/navbar.php'; ?>
 
 <div class="container-login">
     <div class="wrapper-login">
         <h2>Sign in</h2>
+        <?php echo isset($error) ? $error : ''; ?>  
 
-        <form action="" method ="POST">
-            <input type="text" placeholder="Username *" name="username">
+
+        <form action="/login/loginPost" method ="POST">
+            <input type="text" placeholder="Username" name="username">
             
 
-            <input type="password" placeholder="Password *" name="password">
+            <input type="password" placeholder="Password" name="password">
             
             
     </div>
 
 
-            <button id="submit" type="submit" value="submit">Submit</button>
+            <button id="submit" type="submit" name='submit' value="submit">Submit</button>
 
 
 

@@ -19,18 +19,51 @@ class Login extends \Core\Controller
 
     // méthode qui permet de se connecter
 
-    public function LoginPost()
+    /* public function loginPost()
+    { 
+        session_start();
+        $user = $_POST['username'];  
+        $pass = $_POST['password'];  
+        if ($user=='red' && $pass=='123')   
+        {  
+            //declaring session  
+            $_SESSION['user']=$user;
+            view::render('Home/dashboard.php');
+        }  
+        else{  
+            $data['error'] = 'Your Account is Invalid';  
+            view::render('Home/login.php',$data);
+        }  
+    }*/
+//méthode pour se connecter
+    public function loginPost()
     {
-        $loginmodel = new ModelsLogin;
+        //on appelle la session
+        session_start();
+        /*
+        si le submit existe alors il va chercher le username et le mdp dans les post
+        et on va appeler le model du login donc on fera une autre condition pour chercher
+        les données dans la bdd et on appellera la variable session si il trouve le bon login et mdp
+        il va le rediriger dans le dashboard sinon il y aura un msg d'erreur en disant que le compte est invalide
 
-        if (isset($_POST['submit'])) {
-            $username = trim($_POST['username']);
-            $password = trim($_POST['password']);
 
-            $loginmodel->canLogin($username, $password);
+        */
+
+        if ($_POST['submit']) {
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+            $loginModel = new ModelsLogin;
+            if ($loginModel->canLogin($username, $password)) {
+                
+                $_SESSION['username'] = $username;
+                view::render('Home/dashboard.php');
+            } else {
+                $data['error'] = 'Your Account is Invalid';
+                view::render('Home/login.php', $data);
+            }
         }
-        View::render('Home/login.php');
-       
+
+
     }
 
 
@@ -39,6 +72,6 @@ class Login extends \Core\Controller
     public function logout()
     {
         session_destroy();
-        return header('Location :login.php');
+        return View::render('Home/login.php');
     }
 }

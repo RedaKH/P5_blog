@@ -31,6 +31,12 @@ class Home extends \Core\Controller
         View::render('Home/list_articles.php');
     }
 
+    public function login()
+    {
+        View::render('Home/login.php');
+    }
+    
+
 
     
 

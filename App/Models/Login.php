@@ -22,18 +22,18 @@ class Login extends \Core\Model
     public static function canLogin($username, $password)
     {
         $db = static::getDB();
-
-        $query = mysqli_query($db, "select * from user where username='$username' and password='$password'");
-        $row = mysqli_fetch_array($query);
-
-        if(is_array($row)){
-            $_SESSION['username'] = $row['username'];
-            $_SESSION['password'] = $row['password'];
-
-        } else{
-            echo "login ou mot de passe invalide";
-        } if (isset($_SESSION['username'])) {
-            header("Location :dashboard.php");
+        $query = $db->prepare('SELECT * FROM user WHERE username=? AND password=?');
+        $query->bindValue(1,$username, PDO::PARAM_STR);
+        $query->bindValue(2,$password, PDO::PARAM_STR);
+        $query->execute();       
+        if($query->rowCount() > 0){
+            return true;
+        }else{
+            return false;
         }
+
+
+
+        
     }
 }

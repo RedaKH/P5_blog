@@ -1,4 +1,3 @@
-
 <form action="" method="POST">
 <label for="name">Votre nom : </label><br/>
 <input type="text" name="name">
