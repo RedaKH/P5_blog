@@ -17,31 +17,13 @@ class Login extends \Core\Controller
     }
 
 
-    // méthode qui permet de se connecter
-
-    /* public function loginPost()
-    { 
-        session_start();
-        $user = $_POST['username'];  
-        $pass = $_POST['password'];  
-        if ($user=='red' && $pass=='123')   
-        {  
-            //declaring session  
-            $_SESSION['user']=$user;
-            view::render('Home/dashboard.php');
-        }  
-        else{  
-            $data['error'] = 'Your Account is Invalid';  
-            view::render('Home/login.php',$data);
-        }  
-    }*/
-//méthode pour se connecter
+    //méthode pour se connecter
     public function loginPost()
     {
         //on appelle la session
         session_start();
         /*
-        si le submit existe alors il va chercher le username et le mdp dans les post
+        si l'utilisateur  submit existe alors il va chercher le username et le mdp dans les post
         et on va appeler le model du login donc on fera une autre condition pour chercher
         les données dans la bdd et on appellera la variable session si il trouve le bon login et mdp
         il va le rediriger dans le dashboard sinon il y aura un msg d'erreur en disant que le compte est invalide
@@ -54,7 +36,7 @@ class Login extends \Core\Controller
             $password = $_POST['password'];
             $loginModel = new ModelsLogin;
             if ($loginModel->canLogin($username, $password)) {
-                
+
                 $_SESSION['username'] = $username;
                 view::render('Home/dashboard.php');
             } else {
@@ -62,15 +44,39 @@ class Login extends \Core\Controller
                 view::render('Home/login.php', $data);
             }
         }
+    }
 
+    public function updatePassword()
+    {
+        $loginModel = new ModelsLogin;
+        $old_password = $_POST['old_password'];
+        $new_password = $_POST['new_password'];
+
+
+        if (strcmp($old_password, $new_password) == 0) {
+            $msg = "ces mots de passes doivent être différents";
+        } else {
+            $id = $_SESSION['id'];
+            if ($loginModel->oldPasswordMatches($id, $old_password)) {
+                $loginModel->changePassword($id, $new_password);
+                $msg = " votre mot de passe a bien été changé";
+            } else {
+                $msg = "changement incorrect";
+            }
+            view::render('Home/changepassword.php',array('msg'=>$msg));
+
+        }
 
     }
 
 
 
 
+
+
     public function logout()
     {
+
         session_destroy();
         return View::render('Home/login.php');
     }

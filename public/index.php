@@ -47,7 +47,9 @@ $router->add('comment/store_comments', ['controller' => 'comment', 'action' => '
 $router->add('comment/showComments',['controller'=>'comment','action'=>'showComments']);
 
 $router->add('login/loginPost', ['controller' => 'login', 'action' => 'loginPost']);
-$router->add('login/log_out', ['controller' => 'login', 'action' => 'log_out']);
+$router->add('login/updatePassword', ['controller' => 'login', 'action' => 'updatePassword']);
+
+$router->add('login/logout', ['controller' => 'login', 'action' => 'log_out']);
 
 
 

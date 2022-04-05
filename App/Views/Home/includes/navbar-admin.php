@@ -19,6 +19,8 @@
                         <li class="nav-item"><a class="nav-link" href="/posts/ArticlesAdmin">Articles</a></li>
                         <li class="nav-item"><a class="nav-link" href="/posts/store_posts"> Créer un article</a></li>
                         <li class="nav-item"><a class="nav-link" href="/comment/showComments"> Liste des commentaires</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/login/updatePassword"> Changer son mot de passe </a></li>
+
                     </ul>
                 </div>
             </div>
