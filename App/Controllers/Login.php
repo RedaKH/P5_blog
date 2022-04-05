@@ -48,25 +48,23 @@ class Login extends \Core\Controller
 
     public function updatePassword()
     {
-        $loginModel = new ModelsLogin;
-        $old_password = $_POST['old_password'];
-        $new_password = $_POST['new_password'];
-
-
-        if (strcmp($old_password, $new_password) == 0) {
-            $msg = "ces mots de passes doivent être différents";
-        } else {
-            $id = $_SESSION['id'];
-            if ($loginModel->oldPasswordMatches($id, $old_password)) {
-                $loginModel->changePassword($id, $new_password);
-                $msg = " votre mot de passe a bien été changé";
-            } else {
-                $msg = "changement incorrect";
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if ($_POST['submit']) {
+                $oldPassword = sha1($_POST['oldpassword']);
+                $loginModel = new ModelsLogin;
+                $id = $_SESSION['id'];
+                $check = $loginModel->oldPasswordMatches($oldPassword);
+                if ($check == true) {
+                    $newPassword = sha1($_POST['newpassword']);
+                    $loginModel->changePassword($id, $newPassword);
+                    $data['msg'] = "Password changed succefully";
+                    view::render('Home/changepassword.php', $data);
+                } else {
+                    $data['msg'] = "old password is wrong";
+                    view::render('Home/changepassword.php', $data);
+                }
             }
-            view::render('Home/changepassword.php',array('msg'=>$msg));
-
         }
-
     }
 
 

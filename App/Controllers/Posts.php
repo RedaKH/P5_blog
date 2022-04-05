@@ -112,7 +112,7 @@ class Posts extends \Core\Controller
            
 
             if($delete===true){
-
+                echo"Ce post a bien été supprimé";
 
 
 

@@ -33,7 +33,7 @@ class Login extends \Core\Model
         }
     }
 
-    public function oldPasswordMatches($id, $old_password)
+    public function oldPasswordMatches($old_password)
     {
         $db = static::getDB();
         $query = $db->prepare('SELECT * FROM user WHERE id=? AND password=?');
@@ -47,13 +47,12 @@ class Login extends \Core\Model
         }
     }
 
-    public static function changePassword($id,$new_password)
+    public static function changePassword($new_password)
     {
         $db = static::getDB();
-
+        $id = $_SESSION['id'];
         $sql = "UPDATE user SET password=?, WHERE id=?";
         $stmt = $db->prepare($sql);
-        $stmt->execute([$new_password]);
-        # code...
+        $stmt->execute([$new_password,$id]);
     }
 }
