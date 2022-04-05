@@ -47,25 +47,36 @@ class Login extends \Core\Controller
     }
 
     public function updatePassword()
-    {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            if ($_POST['submit']) {
-                $oldPassword = sha1($_POST['oldpassword']);
+    { 
+        if ($_SERVER['REQUEST_METHOD']=='POST') {
+               $oldPassword = md5($_POST['oldpassword']);
+
                 $loginModel = new ModelsLogin;
+
                 $id = $_SESSION['id'];
-                $check = $loginModel->oldPasswordMatches($oldPassword);
-                if ($check == true) {
-                    $newPassword = sha1($_POST['newpassword']);
-                    $loginModel->changePassword($id, $newPassword);
-                    $data['msg'] = "Password changed succefully";
-                    view::render('Home/changepassword.php', $data);
-                } else {
+
+                $check = $loginModel->oldPasswordMatches($id,$oldPassword);
+                //si l'ancien mdp correspond bien à celui de la bdd alors on fera une condition pour que ca soit true
+                //sinon y aura un msg d'erreur comme quoi le mdp ne correspond pas à celui de la bdd
+
+                if ($check==true) {
+                    $newPassword = md5($_POST['newpassword']);
+                    $loginModel->changePassword($id,$newPassword);
+                    $data['msg'] ="Password changed successfully";
+                    view::render('Home/changepassword.php',$data);
+    
+                }else {
                     $data['msg'] = "old password is wrong";
-                    view::render('Home/changepassword.php', $data);
+                    view::render('Home/changepassword.php',$data);
+    
                 }
-            }
+    
+            
         }
-    }
+
+    } 
+
+  
 
 
 
