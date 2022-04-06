@@ -22,7 +22,7 @@
 
                     <div class="col-md-10 pl-0 pr-0">
                         <div class="card m-5">
-                            <img class="card-img-top" src="\img\photoarticle\default.png" alt="Card image cap">
+                            <img class="card-img-top" src="<?php echo $posts['img'] ?>" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title">Nom article :<?php echo htmlspecialchars($posts['title']); ?></h5>
                                 <p class="card-text">

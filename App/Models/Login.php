@@ -33,12 +33,13 @@ class Login extends \Core\Model
         }
     }
 
-    public function oldPasswordMatches($old_password)
+    public function oldPasswordMatches($oldpassword)
     {
         $db = static::getDB();
+       $id = $_SESSION['id'];
         $query = $db->prepare('SELECT * FROM user WHERE id=? AND password=?');
-        $query->bindValue(1, $$id, PDO::PARAM_STR);
-        $query->bindValue(2, $old_password, PDO::PARAM_STR);
+        $query->bindValue(1, $id, PDO::PARAM_STR);
+        $query->bindValue(2, $oldpassword, PDO::PARAM_STR);
         $query->execute();
         if ($query->rowCount() > 0) {
             return true;
@@ -47,11 +48,12 @@ class Login extends \Core\Model
         }
     }
 
-    public static function changePassword($id,$new_password)
+    public static function changePassword($newpassword)
     {
         $db = static::getDB();
+        $id = $_SESSION['id'];
         $sql = "UPDATE user SET password=?, WHERE id=?";
         $stmt = $db->prepare($sql);
-        $stmt->execute([$new_password,$id]);
+        $stmt->execute([$newpassword,$id]);
     }
 }

@@ -19,6 +19,8 @@
         </header>
     <label for="title">Title : </label>
 <input type="text" name="title" value=""><br/>
+<label for="title">Image : </label>
+<input type="file" name="title" value=""><br/>
 <label for="content">content : </label><br/>
 
 <textarea id="content" name="content"

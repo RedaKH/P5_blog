@@ -31,11 +31,12 @@ class Posts extends \Core\Model
     {
         $db = static::getDB();
         $addPost = $db->prepare(
-            'INSERT INTO post (title, content,created_at) 
-            VALUES (:title, :content,CURRENT_TIME())'
+            'INSERT INTO post (title,img,content,created_at) 
+            VALUES (:title,:img, :content,CURRENT_TIME())'
         );
 
         $addPost->bindValue(':title', $title, \PDO::PARAM_STR);
+        $addPost->bindValue(':img', $title, \PDO::PARAM_STR);
         $addPost->bindValue(':content', $content, \PDO::PARAM_STR);
         $addPost->execute();
     }

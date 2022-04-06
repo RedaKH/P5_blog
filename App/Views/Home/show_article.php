@@ -17,7 +17,7 @@
         <h2 class="text-center mb-5 mt-5 write-white"><span class="underline">A</span>rticles</h2>
                     <div class="col-sm-12">
                 <div class="card mb-5">
-                    <img class="card-img-top" src="/img\photoarticle\default.png" alt="Card image cap">
+                    <img class="card-img-top" src="<?php echo $findPost['img']; ?>" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">Nom article : <?php echo $findPost['title']; ?></h5>
                         <p class="card-text">

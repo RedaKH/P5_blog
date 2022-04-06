@@ -13,7 +13,8 @@ use \Core\View;
 class Login extends \Core\Controller
 {
     public function __construct()
-    {
+    { 
+
     }
 
 
@@ -48,31 +49,28 @@ class Login extends \Core\Controller
 
     public function updatePassword()
     { 
-        if ($_SERVER['REQUEST_METHOD']=='POST') {
-               $oldPassword = md5($_POST['oldpassword']);
+        $loginModel = new ModelsLogin;
+        if(isset($_POST['submit'])) {
+            $oldpassword = md5($_POST['oldpassword']);
+            $newpassword = md5($_POST['newpassword']);
 
-                $loginModel = new ModelsLogin;
+            if ($oldpassword!=$newpassword) {
+                $errors['msg']="Password not matched";
+                $loginModel->oldPasswordMatches($oldpassword);
+                View::render('Home/changepassword.php',$errors);
 
+            }else {
                 $id = $_SESSION['id'];
+                $loginModel->changePassword($id,$newpassword);
+            }
 
-                $check = $loginModel->oldPasswordMatches($id,$oldPassword);
-                //si l'ancien mdp correspond bien à celui de la bdd alors on fera une condition pour que ca soit true
-                //sinon y aura un msg d'erreur comme quoi le mdp ne correspond pas à celui de la bdd
 
-                if ($check==true) {
-                    $newPassword = md5($_POST['newpassword']);
-                    $loginModel->changePassword($id,$newPassword);
-                    $data['msg'] ="Password changed successfully";
-                    view::render('Home/changepassword.php',$data);
-    
-                }else {
-                    $data['msg'] = "old password is wrong";
-                    view::render('Home/changepassword.php',$data);
-    
-                }
+            # code...
+        }
+        
     
             
-        }
+        
 
     } 
 

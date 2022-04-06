@@ -10,8 +10,8 @@
 
 <body>
   <?php include 'includes/navbar-admin.php'; ?>
-  <?php if (isset($data)) {
-    echo $data;
+  <?php if(isset($errors)) {
+    echo $errors;
   }
 
   ?>
@@ -21,7 +21,7 @@
         <label for="old_password">Old Password</label>
       </div>
       <div class="col-75">
-        <input type="password" name='oldpassword' placeholder="Old Password">
+        <input type="password" name="oldpassword" placeholder="Old Password">
       </div>
     </div>
     <div class="row">
@@ -29,11 +29,11 @@
         <label for="new_password">New Password</label>
       </div>
       <div class="col-75">
-        <input type="password" name='newpassword' placeholder="New Password">
+        <input type="password" name="newpassword" placeholder="New Password">
       </div>
     </div>
     <div class="row">
-      <input type="submit" name='submit' value="submit">
+      <input type="submit" value="submit" name="submit">
     </div>
 
 
