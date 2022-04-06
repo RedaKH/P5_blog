@@ -49,19 +49,20 @@ class Login extends \Core\Controller
 
     public function updatePassword()
     { 
-        $loginModel = new ModelsLogin;
         if(isset($_POST['submit'])) {
-            $oldpassword = md5($_POST['oldpassword']);
+            $currentpassword = md5($_POST['currentpassword']);
             $newpassword = md5($_POST['newpassword']);
 
-            if ($oldpassword!=$newpassword) {
+            if ($currentpassword!=$newpassword) {
                 $errors['msg']="Password not matched";
-                $loginModel->oldPasswordMatches($oldpassword);
-                View::render('Home/changepassword.php',$errors);
+                View::render('Home/change_password.php',$errors);
 
             }else {
+                $loginModel = new ModelsLogin;
                 $id = $_SESSION['id'];
                 $loginModel->changePassword($id,$newpassword);
+                View::render('Home/change_password.php');
+
             }
 
 

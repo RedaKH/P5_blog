@@ -18,10 +18,10 @@
   <form action="/login/updatePassword" method="POST">
     <div class="row">
       <div class="col-25">
-        <label for="old_password">Old Password</label>
+        <label for="current_password">Current Password</label>
       </div>
       <div class="col-75">
-        <input type="password" name="oldpassword" placeholder="Old Password">
+        <input type="password" name="currentpassword">
       </div>
     </div>
     <div class="row">

@@ -48,10 +48,9 @@ class Login extends \Core\Model
         }
     }
 
-    public static function changePassword($newpassword)
+    public static function changePassword($id,$newpassword)
     {
         $db = static::getDB();
-        $id = $_SESSION['id'];
         $sql = "UPDATE user SET password=?, WHERE id=?";
         $stmt = $db->prepare($sql);
         $stmt->execute([$newpassword,$id]);
