@@ -11,14 +11,20 @@
 <body>
 <?php include 'includes/navbar-admin.php'?>
 
+
     <form action="" method="POST">
+
         <?php foreach ($comment as $comments) { ?>
+            <h1>Name : </h1>
+            <h2><?php echo htmlspecialchars($comments['name']); ?></h2><br>
 
             <h1>Content : </h1>
             <h2><?php echo htmlspecialchars($comments['content']); ?></h2><br>
-            <h1>created_at : </h1>
+            <h1>Date : </h1>
             <h2><?php echo htmlspecialchars($comments['time']); ?></h2><br>
-            <a href='remove_comments?id_com=<?php echo $comments['id_com'] ?>'>Delete</a>
+            <a class="btn btn-primary" href='removeComments?id_com=<?php echo $comments['id_com'] ?>'>Supprimer</a> 
+            <a class="btn btn-primary" href='approvedComments?id_com=<?php echo $comments['id_com']?>'>Approuver</a>
+
 
 
 

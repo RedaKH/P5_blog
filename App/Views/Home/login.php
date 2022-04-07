@@ -5,7 +5,7 @@ include 'includes/navbar.php'; ?>
 <div class="container-login">
     <div class="wrapper-login">
         <h2>Sign in</h2>
-        <?php echo isset($error) ? $error : ''; ?>  
+        <?php echo isset($data) ? $data : ''; ?>  
 
 
         <form action="/login/loginPost" method ="POST">

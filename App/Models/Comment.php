@@ -26,21 +26,11 @@ class Comment extends \Core\Model
     public static function getComments()
     {
         $db = static::getDB();
-        $stmt = $db->query('SELECT * FROM comment ORDER BY time DESC');
+        $stmt = $db->query('SELECT * FROM comment WHERE approved = 0 ORDER BY time DESC');
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function setComment($name,$comment){
-        $db = static::getDB();
-        $addComment = $db->prepare(
-            'INSERT INTO comment (name,content,time) 
-            VALUES (:name, :content,CURRENT_TIME())'
-        );
-
-        $addComment->bindValue(':name', $name, \PDO::PARAM_STR);
-        $addComment->bindValue(':content', $comment, \PDO::PARAM_STR);
-        $addComment->execute();
-    }
+  
   
 
     public function deleteComments($id_com){
@@ -54,18 +44,15 @@ class Comment extends \Core\Model
 
 
     }
-
-    public function edit($id_com){
+    public function approvedComment($id_com)
+    {
         $db = static::getDB();
-
-         
-        $stmt= $db->prepare("SELECT * FROM comment WHERE id_com= :id LIMIT 1");
-        $stmt->execute(['id' => $id_com]); 
-        $stmt->fetch();
-
-
-
+        $stmt = $db->prepare('UPDATE comment SET approved = 1 WHERE id_com = ?');
+        
+        $stmt->execute(array($id_com));
     }
+
+  
 
 
     

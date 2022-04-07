@@ -11,88 +11,29 @@ class Comment extends \Core\Controller
      *
      * @return void
      */
-    public function indexAction()
-    { $commentsModel = new ModelsComment;
-
-        View::render('Home/show_comments.php');
-    }
-
-    public function store_comments(){
-        $commentsModel = new ModelsComment;
-        
 
 
-        if(isset($_POST['submit'])) {
-          $comment= $_POST['comment'];
-          $name= $_POST['name'];
-
-         $commentsModel->setComment($name,$comment);
-
-
-
-
-          echo"success";
-
-
-
-              
-
-          
-
-
-        }else {
-            
-            View::render('Home/comment.php');
-
-        }}
+  
 
         public function showComments(){
             $commentsModel = new ModelsComment;
             $display_comments = $commentsModel->getComments();
-                
-            
-
             View::render('Home/show_comments.php',['comment'=>$display_comments]);
 
-
-
-
         }
 
-        public function CommentbyPost()
-        {
+        
 
-            # code...
-        }
-
-        public function remove_comments(){
+        public function removeComments(){
             $commentsModel = new ModelsComment;
             $id_com = $_GET['id_com'];
-            $delete=$commentsModel->deleteComments($id_com);
+            $commentsModel->deleteComments($id_com);
 
+            $this->showComments();
 
+            view::render('Home/show_comments.php');
             
-            $this->show_comments();
 
-            
-
-           
-
-            if($delete===true){
-                echo "data deleted success";
-
-
-
-
-
-               
-
- 
-
-
-            } else {
-                echo "data fail";
-            }
 
            
 
@@ -103,10 +44,21 @@ class Comment extends \Core\Controller
 
 
         }
+
+        public function approvedComments()
+        {
+            $commentsModel = new ModelsComment;
+            $id_com = $_GET['id_com'];
+            $commentsModel->approvedComment($id_com);
+            $this->showComments();
+
+             
+        }
+
         public function edit_comments(){
             $commentsModel = new ModelsComment;
             $id_com = $_GET['id_com'];
-            $edit_com = $commentsModel->edit($id_com);
+            $edit_com = $commentsModel->singleComment($id_com);
             
             
 

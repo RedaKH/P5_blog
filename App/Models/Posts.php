@@ -27,16 +27,15 @@ class Posts extends \Core\Model
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function setPost($title, $content)
+    public function setPost($title,$content)
     {
         $db = static::getDB();
         $addPost = $db->prepare(
             'INSERT INTO post (title,img,content,created_at) 
-            VALUES (:title,:img, :content,CURRENT_TIME())'
+            VALUES (:title,:content,CURRENT_TIME())'
         );
 
         $addPost->bindValue(':title', $title, \PDO::PARAM_STR);
-        $addPost->bindValue(':img', $title, \PDO::PARAM_STR);
         $addPost->bindValue(':content', $content, \PDO::PARAM_STR);
         $addPost->execute();
     }
@@ -84,9 +83,30 @@ class Posts extends \Core\Model
     {
         $db = static::getDB();
 
-        $sql = "UPDATE post SET title=?, content=? WHERE id_post=?";
+        $sql = "UPDATE post SET title=?, content=? ,created_at = NOW() WHERE id_post=?";
         $stmt = $db->prepare($sql);
          $stmt->execute([$title, $content,$id_post]);
         
+    }
+
+    public function postComment($id_post,$name,$content)
+    {
+        $db = static::getDB();
+        $req = $db->prepare('INSERT INTO comment (post_id, name, content,authorized) VALUES(?, ?, ?, NOW(), 0)');
+        $newComment = $req->execute(array($id_post,$name,$content));
+
+        return $newComment;
+    }
+    public function commentbyPost($id_com){
+        $db = static::getDB();
+
+        $req = $db->prepare("SELECT id_com, name, content FROM comment WHERE id = ? and approved = 1");
+        $req->execute(array($id_com));
+        $comment = $req->fetch();
+
+        return $comment;
+
+
+
     }
 }

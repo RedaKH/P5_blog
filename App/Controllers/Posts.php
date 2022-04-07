@@ -1,6 +1,7 @@
 <?php
 namespace App\Controllers;
 
+use App\Models\Comment;
 use App\Models\Posts as ModelsPosts;
 use \Core\View;
 
@@ -22,34 +23,21 @@ class Posts extends \Core\Controller
 
     
     public function store_posts(){
-        $postModel = new ModelsPosts;
-        
-
-
+        $postModel = new ModelsPosts;    
         if(isset($_POST['submit'])) {
           $title=$_POST['title'];
           $content=$_POST['content'];
+          
 
           $postModel->setPost($title,$content);
 
-
-         
-
-
-          echo"success";
-
-
-
-              
-
-          
-
-
+          echo"success";   
         }else {
             
             View::render('Home/post.php');
 
-        }}
+        }
+    }
 
         public function showPost(){
             $postModel = new ModelsPosts;
@@ -95,9 +83,6 @@ class Posts extends \Core\Controller
             $id_post = $_GET['id_post'];
             $findPost = $postModel->FindByID($id_post);
 
-            
-            
-
             View::render('Home/show_article.php',compact('findPost'));
         }
         
@@ -105,25 +90,9 @@ class Posts extends \Core\Controller
         {
             $postModel = new ModelsPosts;
             $id_post = $_GET['id_post'];
-            $delete=$postModel->deletePost($id_post);
-
-            
-
-           
-
-            if($delete===true){
-
-                echo "<script>alert('ce post a bien été supprimé')</script>";
-
-
-
-
-               
-
- 
-
-
-            }
+            $postModel->deletePost($id_post);
+            $this->ArticlesAdmin();
+            view::render('Home/list_articles_admin.php');
 
             # code...
         }
@@ -148,6 +117,31 @@ class Posts extends \Core\Controller
 
             
         }
+          public function storeComments(){
+            $postModel = new ModelsPosts;
+               $id_post = $_GET['id_com'];
+               $this->selectPost();
+                $name = $_POST['name'];
+                $content =$_POST['content'];
+                $postModel->postComment($id_post,$name,$content);
+
+            }
+            
+            public function commentbyPost()
+            {
+                $postModel = new ModelsPosts;
+    
+                $id_post = $_GET['id_post'];
+                $findComment = $postModel->commentbyPost($id_post);
+    
+                View::render('Home/show_article.php',compact('findComment'));
+            }
+     
+            
+    
+        }
+
+        
 
         
 
@@ -155,4 +149,4 @@ class Posts extends \Core\Controller
         
 
    
-}
+

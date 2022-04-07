@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body><?php include 'includes/navbar.php'; ?>
+<body><?php include 'includes/navbar-admin.php'; ?>
 <form action="" method="POST">
     
 <header class="py-5 bg-light border-bottom mb-4">
@@ -20,6 +20,8 @@
         
     <label for="title">Title : </label>
 <input type="text" name="title" value="<?php echo $findPost['title']; ?>"><br/>
+<label for="title">Image : </label>
+<input type="file" name="title" value=""><br/>
 <label for="content">content : </label><br/>
 
 <textarea id="content" name="content" 

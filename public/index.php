@@ -39,12 +39,16 @@ $router->add('user/show_user', ['controller' => 'user', 'action' => 'show_user']
 $router->add('posts/store_posts', ['controller' => 'posts', 'action' => 'store_posts']);
 $router->add('posts/showPost', ['controller' => 'posts', 'action' => 'showPost']);
 $router->add('posts/ArticlesAdmin', ['controller' => 'posts', 'action' => 'ArticlesAdmin']);
-$router->add('posts/pages', ['controller' => 'posts', 'action' => 'pages']);
 $router->add('posts/selectPost', ['controller' => 'posts', 'action' => 'selectPost']);
 $router->add('posts/DeletePost', ['controller' => 'posts', 'action' => 'DeletePost']);
 $router->add('posts/UpdateaPost', ['controller' => 'posts', 'action' => 'UpdateaPost']);
-$router->add('comment/store_comments', ['controller' => 'comment', 'action' => 'store_commments']);
+$router->add('posts/storeComments', ['controller' => 'comment', 'action' => 'storeCommments']);
+$router->add('posts/commentbyPost', ['controller' => 'comment', 'action' => 'commentByPost']);
 $router->add('comment/showComments',['controller'=>'comment','action'=>'showComments']);
+$router->add('comment/removeComments',['controller'=>'comment','action'=>'removeComments']);
+$router->add('comment/approvedComments',['controller'=>'comment','action'=>'approvedComments']);
+
+
 
 $router->add('login/loginPost', ['controller' => 'login', 'action' => 'loginPost']);
 $router->add('login/updatePassword', ['controller' => 'login', 'action' => 'updatePassword']);
