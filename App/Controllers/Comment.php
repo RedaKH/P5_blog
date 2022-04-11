@@ -18,7 +18,7 @@ class Comment extends \Core\Controller
         public function showComments(){
             $commentsModel = new ModelsComment;
             $display_comments = $commentsModel->getComments();
-            View::render('Home/show_comments.php',['comment'=>$display_comments]);
+            View::render('Home/list_comments.php',['comment'=>$display_comments]);
 
         }
 
@@ -31,7 +31,7 @@ class Comment extends \Core\Controller
 
             $this->showComments();
 
-            view::render('Home/show_comments.php');
+            view::render('Home/list_comments.php');
             
 
 
@@ -54,6 +54,19 @@ class Comment extends \Core\Controller
 
              
         }
+        public function commentbyPost()
+        {
+            $commentsModel = new ModelsComment;
+    
+            $id_post = $_GET['id_post'];
+            if (isset($id_post)) {
+                $findCom = $commentsModel->FindByID($id_post);
+
+                # code...
+            }
+    
+            View::render('Home/comment_by_post.php',['comment'=>$findCom]);
+        }
 
         
         public function storeComments()
@@ -70,7 +83,8 @@ class Comment extends \Core\Controller
                 return;
             }
             $commentsModel->postComment($id_post,$name,$content);
-            header('Location: posts/show_article?id_post='.$id_post);
+            echo "Votre commentaire est en attente d'approbation";
+            exit;
         } else {
             View::render('posts/insert_comment.php');
         }

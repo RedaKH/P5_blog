@@ -1,3 +1,9 @@
+<?php
+if (isset($msg)) {
+    echo $msg;
+} 
+
+?>
 <form action="/comment/storeComments?id_post=<?php echo $_GET['id_post']; ?>" method="POST">
 <label for="name">Votre nom : </label><br/>
 <input type="text" name="name">

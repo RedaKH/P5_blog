@@ -54,11 +54,19 @@ class Comment extends \Core\Model
     public function postComment($id_post,$name,$content)
     {
         $db = static::getDB();
-        $id_post = $_GET['id_post'];
-        $req = $db->prepare('INSERT INTO comment (post_id, name, content,approved) VALUES(?, ?, ?, NOW(), 0)');
+        $req = $db->prepare('INSERT INTO comment (post_id, name,content,time,approved) VALUES(?, ?, ?, NOW(), 0)');
         $newComment = $req->execute(array($id_post,$name,$content));
 
         return $newComment;
+    }
+    public function FindByID($id_post)
+    {
+        $db = static::getDB();
+
+
+        $stmt = $db->prepare("SELECT * FROM comment WHERE post_id = :id ");
+        $stmt->execute(['id' => $id_post]);
+        return $stmt->fetch();
     }
 
   

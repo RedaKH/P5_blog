@@ -30,6 +30,9 @@
                         </p>
                     </div>
                 </div>
+                <?php include 'comment_by_post.php'; ?>
+            
+
 
                 
 
