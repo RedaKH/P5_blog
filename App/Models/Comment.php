@@ -51,6 +51,15 @@ class Comment extends \Core\Model
         
         $stmt->execute(array($id_com));
     }
+    public function postComment($id_post,$name,$content)
+    {
+        $db = static::getDB();
+        $id_post = $_GET['id_post'];
+        $req = $db->prepare('INSERT INTO comment (post_id, name, content,approved) VALUES(?, ?, ?, NOW(), 0)');
+        $newComment = $req->execute(array($id_post,$name,$content));
+
+        return $newComment;
+    }
 
   
 

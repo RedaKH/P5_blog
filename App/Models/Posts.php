@@ -89,18 +89,11 @@ class Posts extends \Core\Model
         
     }
 
-    public function postComment($id_post,$name,$content)
-    {
-        $db = static::getDB();
-        $req = $db->prepare('INSERT INTO comment (post_id, name, content,authorized) VALUES(?, ?, ?, NOW(), 0)');
-        $newComment = $req->execute(array($id_post,$name,$content));
-
-        return $newComment;
-    }
+   
     public function commentbyPost($id_com){
         $db = static::getDB();
 
-        $req = $db->prepare("SELECT id_com, name, content FROM comment WHERE id = ? and approved = 1");
+        $req = $db->prepare("SELECT id_com, name, content FROM comment WHERE post_id = ? and approved = 1");
         $req->execute(array($id_com));
         $comment = $req->fetch();
 

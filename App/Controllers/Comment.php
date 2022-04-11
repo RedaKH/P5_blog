@@ -55,18 +55,24 @@ class Comment extends \Core\Controller
              
         }
 
-        public function edit_comments(){
-            $commentsModel = new ModelsComment;
-            $id_com = $_GET['id_com'];
-            $edit_com = $commentsModel->singleComment($id_com);
-            
-            
+        
+        public function storeComments()
+    {
+        $commentsModel = new ModelsComment;
+        $name = $_POST['name'];
+        $content = $_POST['content'];
+        $id_post = $_GET['id_post'];
 
-            View::render('Home/edit_comments.php',['comment'=>$edit_com]);
-
-
-
-
-
+         if (isset($_POST['submit'])) {
+    
+            if (empty($name) || empty($content)) {
+                echo "Impossible d'envoyer votre commentaire.";
+                return;
+            }
+            $commentsModel->postComment($id_post,$name,$content);
+            header('Location: posts/show_article?id_post='.$id_post);
+        } else {
+            View::render('posts/insert_comment.php');
         }
+    }
 }

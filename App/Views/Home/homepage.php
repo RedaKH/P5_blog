@@ -48,6 +48,7 @@
                         <fieldset>
                                 <legend>Me contacter</legend>
                                 <small class="text-muted">N'hésitez pas à me contacter et je vous répondrai par email.</small>
+                                <form action="" method="post">
                                 <div>
                                     <label for="emailAddress" class="form-label mt-4">Adresse email</label>
                                     <input name="emailAddress" type="email" class="form-control" id="emailAddress" aria-describedby="emailHelp" placeholder="Votre adresse email">
@@ -67,6 +68,7 @@
                                     <textarea name="message" class="form-control" id="message" rows="3" placeholder="Votre message"></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-primary rounded mt-3">Envoyer</button>
+                                </form>
                             </fieldset>
                     </div>
                 </div>
