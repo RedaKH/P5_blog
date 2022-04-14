@@ -48,10 +48,10 @@
                         <fieldset>
                                 <legend>Me contacter</legend>
                                 <small class="text-muted">N'hésitez pas à me contacter et je vous répondrai par email.</small>
-                                <form action="" method="post">
+                                <form action="/home/contact" method="post">
                                 <div>
                                     <label for="emailAddress" class="form-label mt-4">Adresse email</label>
-                                    <input name="emailAddress" type="email" class="form-control" id="emailAddress" aria-describedby="emailHelp" placeholder="Votre adresse email">
+                                    <input name="emailAddress" type="text" class="form-control" id="emailAddress" aria-describedby="emailHelp" placeholder="Votre adresse email">
                                 </div>
                                 <div class="row g-3">
                                     <div class="col">

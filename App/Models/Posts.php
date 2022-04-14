@@ -50,25 +50,7 @@ class Posts extends \Core\Model
         return $deleteComments;
     }
 
-    /* public function pagination()
-    {
-        $db = static::getDB();
-
-        $articlesPerPage = 10;
-        $articlestotalquery = $db->query('SELECT ID from post');
-        $articlesTotal = $articlestotalquery->rowCount();
-        $totalPages = ceil($articlesTotal / $articlesPerPage);
-
-        if (isset($_GET['page']) and !empty($_GET['page']) and $_GET['page'] > 0 and $_GET['page'] <= $totalPages) {
-            $_GET['page'] = intval($_GET['page']);
-            $currentPage = $_GET['page'];
-        } else {
-            $currentPage = 1;
-        }
-        $start = ($currentPage - 1) * $articlesPerPage;
-        $db->query('SELECT * FROM post LIMIT 4' . $start . ',' . $articlesPerPage);
-    }
-*/
+   
     public function FindByID($id_post)
     {
         $db = static::getDB();
@@ -88,18 +70,16 @@ class Posts extends \Core\Model
          $stmt->execute([$title, $content,$id_post]);
         
     }
-
-   
-    public function commentbyPost($id_com){
+    public function findCommentArticle($id_post)
+    {
         $db = static::getDB();
 
-        $req = $db->prepare("SELECT id_com, name, content FROM comment WHERE post_id = ? and approved = 1");
-        $req->execute(array($id_com));
-        $comment = $req->fetch();
 
-        return $comment;
-
-
-
+        $stmt = $db->prepare("SELECT * FROM comment WHERE post_id = :id AND approved=1");
+        $stmt->execute(['id' => $id_post]);
+        return $stmt->fetchAll();
     }
+
+   
+   
 }

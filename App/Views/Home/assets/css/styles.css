@@ -11293,3 +11293,8 @@ textarea.form-control-lg {
   background-size: cover;
 }
 
+
+.cell-breakWord {
+  word-wrap: break-word;
+  max-width: 1px;
+}

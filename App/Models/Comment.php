@@ -59,15 +59,7 @@ class Comment extends \Core\Model
 
         return $newComment;
     }
-    public function FindByID($id_post)
-    {
-        $db = static::getDB();
-
-
-        $stmt = $db->prepare("SELECT * FROM comment WHERE post_id = :id ");
-        $stmt->execute(['id' => $id_post]);
-        return $stmt->fetch();
-    }
+   
 
   
 

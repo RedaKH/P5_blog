@@ -6,11 +6,9 @@ use \Core\View;
 
 class Comment extends \Core\Controller
 {
-     /**
-     * Show the index page
-     *
-     * @return void
-     */
+     
+    
+    
 
 
   
@@ -27,11 +25,11 @@ class Comment extends \Core\Controller
         public function removeComments(){
             $commentsModel = new ModelsComment;
             $id_com = $_GET['id_com'];
+            
             $commentsModel->deleteComments($id_com);
-
             $this->showComments();
 
-            view::render('Home/list_comments.php');
+
             
 
 
@@ -54,19 +52,7 @@ class Comment extends \Core\Controller
 
              
         }
-        public function commentbyPost()
-        {
-            $commentsModel = new ModelsComment;
-    
-            $id_post = $_GET['id_post'];
-            if (isset($id_post)) {
-                $findCom = $commentsModel->FindByID($id_post);
 
-                # code...
-            }
-    
-            View::render('Home/comment_by_post.php',['comment'=>$findCom]);
-        }
 
         
         public function storeComments()
@@ -86,7 +72,7 @@ class Comment extends \Core\Controller
             echo "Votre commentaire est en attente d'approbation";
             exit;
         } else {
-            View::render('posts/insert_comment.php');
+            View::render('home/insert_comment.php');
         }
     }
 }

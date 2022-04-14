@@ -43,7 +43,7 @@ class Home extends \Core\Controller
             empty(htmlspecialchars($_POST['lastname'])) ||
             empty(htmlspecialchars($_POST['emailAddress'])) ||
             empty(htmlspecialchars($_POST['message'])) ||
-            !filter_var(htmlspecialchars($_POST['email']), FILTER_VALIDATE_EMAIL)
+            !filter_var(htmlspecialchars($_POST['emailAddress']), FILTER_VALIDATE_EMAIL)
         ) {
             echo "No arguments Provided!";
             return false;

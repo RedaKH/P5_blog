@@ -55,27 +55,15 @@ class Posts extends \Core\Controller
     }
 
 
-    /* public function pages(){
-
-            $postModel = new ModelsPosts;
-            $page = $postModel->pagination();
-            View::render('Home/list_articles.php',['page'=>$page]);
-
-
-
-           
-
-
-
-       }*/
     public function selectPost()
     {
         $postModel = new ModelsPosts;
 
         $id_post = $_GET['id_post'];
         $findPost = $postModel->FindByID($id_post);
+        $findCom = $postModel->findCommentArticle($id_post);
 
-        View::render('Home/show_article.php', compact('findPost'));
+        View::render('Home/show_article.php', compact('findPost','findCom'));
     }
 
     public function DeletePost()
@@ -106,11 +94,5 @@ class Posts extends \Core\Controller
     }
     
 
-    public function commentbyPost()
-    {
-        $postModel = new ModelsPosts;
-
-        $id_post = $_GET['id_post'];
-        $postModel->commentbyPost($id_post);
-    }
+   
 }

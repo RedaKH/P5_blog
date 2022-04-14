@@ -16,21 +16,24 @@
                 </div>
             </div>
         </header>
-        <input type="hidden" name="id_post" value="<?php echo $findPost['id_post']; ?>">
+        <div class="container">
+                   <input type="hidden" name="id_post" value="<?php echo $findPost['id_post']; ?>">
         
     <label for="title">Title : </label>
-<input type="text" name="title" value="<?php echo $findPost['title']; ?>"><br/>
-<label for="title">Image : </label>
-<input type="file" name="title" value=""><br/>
+<input type="text" class="form-control" name="title" value="<?php echo $findPost['title']; ?>"><br/>
 <label for="content">content : </label><br/>
 
 <textarea id="content" name="content" 
-          rows="5" cols="33">
+          rows="5" cols="33" class="form-control">
           <?php echo $findPost['content']; ?>
 </textarea>
 <br/>
 
 <input type="submit" name="submit" value="submit">
+
+
+        </div>
+ 
     
 </body>
 </html>

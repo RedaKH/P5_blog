@@ -30,8 +30,34 @@
                         </p>
                     </div>
                 </div>
-                <?php include 'comment_by_post.php'; ?>
+         <?php foreach ($findCom as $comments) { ?>
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <p class="text-secondary text-center m-0"> Date du commentaire :<?php echo $comments['time']; ?></p>
+                                <p class="text-secondary text-center m-0"> Nom :<?php echo $comments['name']; ?></p>
+
+                            </div>
+                            <div class="col-md-10">
+                                <div class="clearfix"></div>
+                                <p><?php echo $comments['content']; ?></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
             
+
+
+
+
+
+
+
+        <?php } ?>          
 
 
                 

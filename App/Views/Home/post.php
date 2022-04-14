@@ -17,16 +17,21 @@
                 </div>
             </div>
         </header>
+        <div class="container">
+        <div class="mb-3">
+
     <label for="title">Title : </label>
-<input type="text" name="title" value=""><br/>
+<input type="text" name="title"class="form-control" value=""><br/>
 <label for="content">content : </label><br/>
 
 <textarea id="content" name="content"
-          rows="5" cols="33">
+          rows="5" cols="33" class="form-control">
 </textarea>
 <br/>
 
 <input type="submit" name="submit" value="submit">
+        </div>
+        </div>
     
 </body>
 </html>
