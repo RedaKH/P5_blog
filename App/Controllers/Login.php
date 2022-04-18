@@ -25,7 +25,7 @@ class Login extends \Core\Controller
         session_start();
         if ($_POST['submit']) {
             $username = $_POST['username'];
-            $password = $_POST['password'];
+            $password = md5($_POST['password']);
             $loginModel = new ModelsLogin;
             if ($loginModel->canLogin($username, $password)) {
 
