@@ -4,74 +4,75 @@ namespace App\Controllers;
 use App\Models\Comment as ModelsComment;
 use \Core\View;
 
-/**
- * Home controller
- *
- * PHP version 7.0
- */
 class Comment extends \Core\Controller
 {
-
-    /**
-     * Show the index page
-     *
-     * @return void
-     */
-    public function indexAction()
-    {
-        View::renderTemplate('Home/index.html');
-    }
-
-    public function store_comments(){
-        $commentsModel = new ModelsComment;
-        
+     
+    
+    
 
 
-        if(isset($_POST['submit'])) {
-          $comment= $_POST['comment'];
-         $comments = $commentsModel->setComment($comment);
+  
 
-
-
-
-          echo"success";
-
-
-
-              
-
-          
-
-
-        }else {
-            
-            View::renderTemplate('Home/comment.html');
-
-        }}
-
-        public function show_comments(){
+        public function showComments(){
             $commentsModel = new ModelsComment;
             $display_comments = $commentsModel->getComments();
-                
-            
-
-            View::renderTemplate('Home/comment.html',['comment'=>$display_comments]);
-
-
-
+            View::render('Home/list_comments.php',['comment'=>$display_comments]);
 
         }
 
-        public function remove_comments(){
+        
+
+        public function removeComments(){
             $commentsModel = new ModelsComment;
-            $delete_comments = $commentsModel->deleteComments($id_comments);
+            $id_com = $_GET['id_com'];
+            
+            $commentsModel->deleteComments($id_com);
+            $this->showComments();
 
 
             
 
-            View::renderTemplate('Home/comment.html');
+
+           
+
+
+
+
+            
+
 
         }
+
+        public function approvedComments()
+        {
+            $commentsModel = new ModelsComment;
+            $id_com = $_GET['id_com'];
+            $commentsModel->approvedComment($id_com);
+            $this->showComments();
+
+             
+        }
+
+
         
-        
+        public function storeComments()
+    {
+        $commentsModel = new ModelsComment;
+        $name = $_POST['name'];
+        $content = $_POST['content'];
+        $id_post = $_GET['id_post'];
+
+         if (isset($_POST['submit'])) {
+    
+            if (empty($name) || empty($content)) {
+                echo "Impossible d'envoyer votre commentaire.";
+                return;
+            }
+            $commentsModel->postComment($id_post,$name,$content);
+            echo "Votre commentaire est en attente d'approbation";
+            exit;
+        } else {
+            View::render('home/insert_comment.php');
+        }
+    }
 }
