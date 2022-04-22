@@ -6,19 +6,10 @@ use App\Models\Posts as ModelsPosts;
 use \Core\View;
 
 
-/**
- * Home controller
- *
- * PHP version 7.0
- */
 class Posts extends \Core\Controller
 {
 
-    /**
-     * Show the index page
-     *
-     * @return void
-     */
+    
 
 
 

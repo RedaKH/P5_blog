@@ -11,15 +11,8 @@ class Posts extends \Core\Model
 {
 
 
-    public function __construct()
-    {
-    }
+  
 
-    /**
-     * Get all the posts as an associative array
-     *
-     * @return array
-     */
     public static function getPosts()
     {
         $db = static::getDB();

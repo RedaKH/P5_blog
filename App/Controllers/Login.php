@@ -8,10 +8,7 @@ use \Core\View;
 
 class Login extends \Core\Controller
 {
-    public function __construct()
-    { 
-
-    }
+  
 
 
     public function loginPost()
