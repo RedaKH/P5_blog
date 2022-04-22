@@ -28,15 +28,20 @@ class Posts extends \Core\Controller
         if (isset($_POST['submit'])) {
             $title = $_POST['title'];
             $content = $_POST['content'];
+            if (empty($title) || empty($content)) {
+                echo "Impossible d'envoyer votre article.";
+            }
 
 
             $postModel->setPost($title, $content);
+            View::render('Home/post.php');
 
-            echo "success";
         } else {
+
 
             View::render('Home/post.php');
         }
+      
     }
 
     public function showPost()

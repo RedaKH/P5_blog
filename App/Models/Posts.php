@@ -31,7 +31,7 @@ class Posts extends \Core\Model
     {
         $db = static::getDB();
         $addPost = $db->prepare(
-            'INSERT INTO post (title,img,content,created_at) 
+            'INSERT INTO post (title,content,created_at) 
             VALUES (:title,:content,CURRENT_TIME())'
         );
 
