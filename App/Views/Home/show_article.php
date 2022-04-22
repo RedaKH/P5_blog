@@ -18,13 +18,13 @@
             <h2 class="text-center mb-5 mt-5 write-white"><span class="underline">A</span>rticles</h2>
             <div class="col-sm-12">
                 <div class="card mb-5">
-                    <img class="card-img-top" src="<?php echo $findPost['img']; ?>" alt="Card image cap">
+                    <img class="card-img-top" src="<?php echo htmlspecialchars($findPost['img']); ?>" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">Nom article : <?php echo $findPost['title']; ?></h5>
+                        <h5 class="card-title">Nom article : <?php echo htmlspecialchars($findPost['title']); ?></h5>
                         <p class="card-text">
                             <small class="text-muted">admin</small>
                         </p>
-                        <p class="card-text"><?php echo $findPost['content']; ?></p>
+                        <p class="card-text"><?php echo htmlspecialchars($findPost['content']); ?></p>
                         <p class="card-text">
                             <small class="text-muted"></small>
                         </p>
@@ -36,13 +36,13 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-2">
-                                <p class="text-secondary text-center m-0"> Date du commentaire :<?php echo $comments['time']; ?></p>
-                                <p class="text-secondary text-center m-0"> Nom :<?php echo $comments['name']; ?></p>
+                                <p class="text-secondary text-center m-0"> Date du commentaire :<?php echo htmlspecialchars($comments['time']); ?></p>
+                                <p class="text-secondary text-center m-0"> Nom :<?php echo htmlspecialchars($comments['name']); ?></p>
 
                             </div>
                             <div class="col-md-10">
                                 <div class="clearfix"></div>
-                                <p><?php echo $comments['content']; ?></p>
+                                <p><?php echo htmlspecialchars($comments['content']); ?></p>
                             </div>
                         </div>
                     </div>

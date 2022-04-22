@@ -25,9 +25,9 @@
 
                 <div class="d-flex flex-row comment-row m-t-0">
                     <div class="comment-text w-100">
-                        <h6 class="font-medium"> Nom : <?php echo $comments['name']; ?></h6> <span class="m-b-15 d-block"><?php echo htmlspecialchars($comments['content']); ?> </span>
-                        <div class="comment-footer"> <span class="text-muted float-right"><?php echo $comments['time']; ?></span> <a href='removeComments?id_com=<?php echo $comments['id_com'] ?>'>Supprimer</a>
-                                <a href='approvedComments?id_com=<?php echo $comments['id_com'] ?>'>Approuver
+                        <h6 class="font-medium"> Nom : <?php echo htmlspecialchars($comments['name']); ?></h6> <span class="m-b-15 d-block"><?php echo htmlspecialchars($comments['content']); ?> </span>
+                        <div class="comment-footer"> <span class="text-muted float-right"><?php echo htmlspecialchars($comments['time']); ?></span> <a href='removeComments?id_com=<?php echo htmlspecialchars($comments['id_com']); ?>'>Supprimer</a>
+                                <a href='approvedComments?id_com=<?php echo htmlspecialchars($comments['id_com']); ?>'>Approuver
                                 </a> </div>
                     </div>
                 </div> 

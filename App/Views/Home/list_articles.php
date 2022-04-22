@@ -22,17 +22,17 @@
 
                     <div class="col-md-10 pl-0 pr-0">
                         <div class="card m-5">
-                            <img class="card-img-top" src="<?php echo $posts['img'] ?>" alt="Card image cap">
+                            <img class="card-img-top" src="<?php echo htmlspecialchars($posts['img']); ?>" alt="Card image cap">
                             <div class="card-body">
-                                <h5 class="card-title">Nom article :<?php echo $posts['title']; ?></h5>
+                                <h5 class="card-title">Nom article :<?php echo htmlspecialchars($posts['title']); ?></h5>
                                 <p class="card-text">
                                     <small class="text-muted">admin</small>
                                 </p>
-                                <p class="card-text"><?php echo $posts['content']; ?></p>
+                                <p class="card-text"><?php echo htmlspecialchars($posts['content']); ?></p>
                                 <p class="card-text">
-                                    <small class="text-muted">Date de création : <?php echo $posts['created_at']; ?></small>
+                                    <small class="text-muted">Date de création : <?php echo htmlspecialchars($posts['created_at']); ?></small>
                                 </p>
-                                <a class="btn btn-primary" href='selectPost?id_post=<?php echo $posts['id_post'] ?>'>Read more →</a>   
+                                <a class="btn btn-primary" href='selectPost?id_post=<?php echo htmlspecialchars($posts['id_post']); ?>'>Read more →</a>   
                                
 
                             
