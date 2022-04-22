@@ -5,11 +5,7 @@ namespace App\Controllers;
 use App\Models\Login as ModelsLogin;
 use \Core\View;
 
-/**
- * Home controller
- *
- * PHP version 7.0
- */
+
 class Login extends \Core\Controller
 {
     public function __construct()
@@ -18,10 +14,8 @@ class Login extends \Core\Controller
     }
 
 
-    //méthode pour se connecter
     public function loginPost()
     {
-        //on appelle la session
         session_start();
         if ($_POST['submit']) {
             $username = $_POST['username'];
