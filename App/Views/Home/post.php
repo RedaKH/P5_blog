@@ -22,6 +22,7 @@
 
     <label for="title">Title : </label>
 <input type="text" name="title"class="form-control" value=""><br/>
+
 <label for="content">content : </label><br/>
 
 <textarea id="content" name="content"

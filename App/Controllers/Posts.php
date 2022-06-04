@@ -9,12 +9,10 @@ use \Core\View;
 class Posts extends \Core\Controller
 {
 
-    
-
-
 
     public function store_posts()
     {
+        
         $postModel = new ModelsPosts;
         if (isset($_POST['submit'])) {
             $title = $_POST['title'];
@@ -26,13 +24,9 @@ class Posts extends \Core\Controller
 
             $postModel->setPost($title, $content);
             View::render('Home/post.php');
-
         } else {
-
-
             View::render('Home/post.php');
         }
-      
     }
 
     public function showPost()
@@ -59,7 +53,7 @@ class Posts extends \Core\Controller
         $findPost = $postModel->FindByID($id_post);
         $findCom = $postModel->findCommentArticle($id_post);
 
-        View::render('Home/show_article.php', compact('findPost','findCom'));
+        View::render('Home/show_article.php', compact('findPost', 'findCom'));
     }
 
     public function DeletePost()
@@ -79,7 +73,6 @@ class Posts extends \Core\Controller
         $id_post = $_GET['id_post'];
         $findPost = $postModel->FindByID($id_post);
 
-
         if (isset($_POST['submit'])) {
             $title = $_POST['title'];
             $content = $_POST['content'];
@@ -88,7 +81,4 @@ class Posts extends \Core\Controller
 
         View::render('Home/update_post.php', compact('findPost'));
     }
-    
-
-   
 }

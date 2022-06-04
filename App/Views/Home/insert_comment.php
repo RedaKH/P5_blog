@@ -7,6 +7,8 @@
 <input type="text" name="name" class="form-control">
 
     <label for="content"> commentaire : </label><br/>
+    <input type="hidden" name="token" value="<?php $_SESSION['token']; ?>">
+
 
 <textarea id="content" name="content" 
           rows="5" cols="33" class="form-control">

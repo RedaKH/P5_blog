@@ -14,6 +14,7 @@ class Login extends \Core\Controller
     public function loginPost()
     {
         session_start();
+
         if ($_POST['submit']) {
             $username = $_POST['username'];
             $password = md5($_POST['password']);
@@ -21,10 +22,12 @@ class Login extends \Core\Controller
             if ($loginModel->canLogin($username, $password)) {
 
                 $_SESSION['username'] = $username;
+
                 view::render('Home/dashboard.php');
             } else {
-                $data['error'] = "Your Account is Invalid";
-                view::render('Home/login.php',$data);
+                
+                
+                view::render('Home/login.php');
             }
         }
     }
