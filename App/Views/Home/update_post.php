@@ -18,7 +18,7 @@
         </header>
         <div class="container">
                    <input type="hidden" name="id_post" value="<?php echo $findPost['id_post']; ?>">
-                   <input type="hidden" name="token" value="<?php $_SESSION['token']; ?>">
+           
 
         
     <label for="title">Title : </label>
