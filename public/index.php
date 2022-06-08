@@ -47,9 +47,11 @@ $router->add('comment/showComments',['controller'=>'comment','action'=>'showComm
 $router->add('comment/removeComments',['controller'=>'comment','action'=>'removeComments']);
 $router->add('comment/approvedComments',['controller'=>'comment','action'=>'approvedComments']);
 $router->add('posts/comment/storeComments',['controller'=>'comment','action'=>'storeComments']);
-$router->add('login/loginPost', ['controller' => 'login', 'action' => 'loginPost']);
-$router->add('login/updatePassword', ['controller' => 'login', 'action' => 'updatePassword']);
-$router->add('login/csrf', ['controller' => 'login', 'action' => 'csrf']);
+$router->add('login/loginPostAdmin', ['controller' => 'login', 'action' => 'loginPost']);
+$router->add('login/loginPostUser', ['controller' => 'login', 'action' => 'loginPost']);
+
+$router->add('login/makeAccount', ['controller' => 'login', 'action' => 'makeAccount']);
+
 
 
 $router->add('login/logout', ['controller' => 'login', 'action' => 'logout']);

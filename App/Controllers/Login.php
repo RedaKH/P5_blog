@@ -11,7 +11,56 @@ class Login extends \Core\Controller
   
 
 
-    public function loginPost()
+    public function loginPostAdmin()
+    {
+        session_start();
+
+        if ($_POST['submit']) {
+            $username = $_POST['username'];
+            $password = md5($_POST['password']);
+            $loginModel = new ModelsLogin;
+            if ($loginModel->canLoginAdmin($username, $password)) {
+
+                $_SESSION['username'] = $username;
+
+                view::render('Home/dashboard-admin.php');
+            } else {
+                
+                
+                view::render('Home/loginadmin.php');
+            }
+        }
+    }
+
+    public function makeAccount(){
+        $loginModel = new ModelsLogin;
+
+        if(isset($_POST['submit'])){
+
+            $username = $_POST['username'];
+            $password = md5($_POST['password']);
+            $email = $_POST['email'];
+
+
+            $loginModel->makeAccount($username,$password,$email);
+
+            if (empty($username) || empty($email) || empty($password)) {
+                echo "Impossible de créer votre compte";
+            }
+            View::render('Home/User.php');
+
+
+
+
+        }else {
+            View::render('Home/User.php');
+
+        }
+
+
+    }
+
+    public function loginPostUser()
     {
         session_start();
 
@@ -27,10 +76,12 @@ class Login extends \Core\Controller
             } else {
                 
                 
-                view::render('Home/login.php');
+                view::render('Home/loginuser.php');
             }
         }
     }
+
+
 
  
 

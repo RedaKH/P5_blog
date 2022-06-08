@@ -4,9 +4,9 @@ include 'includes/navbar.php'; ?>
 <div class="container-login">
     <div class="wrapper-login">
 
-        <form class="container mt-5 write-white" action="/login/loginPost" method="post">
+        <form class="container mt-5 write-white" action="/login/loginPostUser" method="post">
 
-            <h2 class="text-center mb-5"><span class="underline">C</span>onnexion</h2>
+            <h2 class="text-center mb-5"><span class="underline">C</span>onnexion Utilisateur</h2>
 
             <p id="error" class="row d-flex justify-content-center "> <?php if (isset($data)) {
                                                                             echo $data;

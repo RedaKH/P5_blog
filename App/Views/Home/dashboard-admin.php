@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <?php include 'includes/navbar-user.php' ?>
+    <?php include 'includes/navbar-admin.php' ?>
 
     
     <h2 class="text-center mb-5"><span class="underline">B</span>ienvenue

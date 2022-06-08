@@ -22,9 +22,14 @@ class Home extends \Core\Controller
         View::render('Home/list_articles.php');
     }
 
-    public function login()
+    public function loginadmin()
     {
-        View::render('Home/login.php');
+        View::render('Home/loginadmin.php');
+    }
+
+    public function loginuser()
+    {
+        View::render('Home/loginuser.php');
     }
     public function contact()
     {
